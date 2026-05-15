@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上海两日手帐 · 2026.05.16-17 · 给 ENFP 和 ISTJ 的双人份</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ecd9;
+  --paper-2:#efe6c8;
+  --ink:#3a2e1f;
+  --ink-soft:#6b5a44;
+  --line:#c9b88c;
+  --enfp:#e85c8a;        /* 玫粉 - ENFP */
+  --enfp-soft:#fde2ec;
+  --istj:#3d6a8c;        /* 海蓝 - ISTJ */
+  --istj-soft:#d7e5f0;
+  --both:#7a8b3a;         /* 橄榄绿 - 都适合 */
+  --both-soft:#e6ecc8;
+  --tape:#fff3a8cc;       /* 胶带黄 */
+  --tape2:#ffb6a8cc;      /* 胶带粉 */
+  --tape3:#b8e1ffcc;      /* 胶带蓝 */
+  --tape4:#c8f0c0cc;      /* 胶带绿 */
+  --stamp:#c63b2f;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Patrick Hand","ZCOOL XiaoWei",ui-sans-serif,system-ui;
+  background:
+    radial-gradient(1200px 800px at 20% 10%, #e9dfc4 0%, transparent 60%),
+    radial-gradient(900px 700px at 80% 90%, #ead9b8 0%, transparent 60%),
+    var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+  padding:24px 12px 80px;
+}
+
+/* 纸张纹理 */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 25% 35%, #00000008 1px, transparent 1.5px),
+    radial-gradient(circle at 75% 65%, #00000010 1px, transparent 1.5px),
+    radial-gradient(circle at 50% 80%, #00000008 1px, transparent 1.5px);
+  background-size:7px 7px,11px 11px,13px 13px;
+  mix-blend-mode:multiply;
+  opacity:.45;
+  z-index:0;
+}
+
+.wrap{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+
+/* 通用纸卡 */
+.page{
+  background:
+    linear-gradient(180deg, #fffaee, #f5ecd2);
+  border:1px solid #d8c79a;
+  border-radius:14px;
+  box-shadow:
+    0 1px 0 #fff8 inset,
+    0 18px 30px -20px #00000033,
+    0 2px 4px #00000018;
+  padding:36px 28px 28px;
+  margin:28px 0;
+  position:relative;
+}
+.page::before{
+  /* 横线纸 */
+  content:"";
+  position:absolute;inset:60px 24px 24px;
+  background-image:repeating-linear-gradient(180deg, transparent 0 31px, #b9a26b22 31px 32px);
+  pointer-events:none;
+  border-radius:6px;
+}
+
+/* 胶带 */
+.tape{
+  position:absolute;
+  width:130px;height:26px;
+  background:var(--tape);
+  box-shadow:0 4px 8px #0002;
+  transform:rotate(-4deg);
+  z-index:2;
+  opacity:.95;
+  border-left:1px dashed #00000022;
+  border-right:1px dashed #00000022;
+}
+.tape.t1{top:-12px;left:30px;background:var(--tape2);transform:rotate(-6deg)}
+.tape.t2{top:-12px;right:30px;background:var(--tape3);transform:rotate(5deg)}
+.tape.t3{bottom:-10px;left:50%;transform:translateX(-50%) rotate(2deg);background:var(--tape4)}
+
+/* 标题 */
+.title-main{
+  font-family:"Ma Shan Zheng","Caveat",serif;
+  font-size:54px;
+  line-height:1.1;
+  color:var(--ink);
+  text-align:center;
+  letter-spacing:2px;
+  margin:8px 0 4px;
+  text-shadow:1px 1px 0 #fff9, 2px 2px 6px #0001;
+}
+.title-sub{
+  font-family:"Caveat",cursive;
+  font-size:26px;
+  color:var(--ink-soft);
+  text-align:center;
+  margin-bottom:14px;
+}
+h2.section{
+  font-family:"ZCOOL KuaiLe","Ma Shan Zheng",serif;
+  font-size:32px;
+  margin:18px 0 14px;
+  display:inline-block;
+  padding:4px 14px;
+  background:linear-gradient(180deg, transparent 60%, #ffe98a 60%);
+  transform:rotate(-1deg);
+}
+
+/* 封面布局 */
+.cover-grid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:22px;
+  margin-top:18px;
+}
+@media (max-width:760px){.cover-grid{grid-template-columns:1fr}}
+
+.flight-card{
+  background:#fff8e0;
+  border:1.5px dashed #b9a26b;
+  border-radius:10px;
+  padding:14px 16px;
+  position:relative;
+  font-family:"ZCOOL XiaoWei",serif;
+  font-size:16px;
+  line-height:1.7;
+}
+.flight-card h3{
+  margin:0 0 8px;
+  font-family:"Ma Shan Zheng",serif;
+  font-size:22px;
+  letter-spacing:1px;
+}
+.flight-row{
+  display:grid;
+  grid-template-columns:auto 1fr auto 1fr auto;
+  align-items:center;
+  gap:8px;
+  padding:6px 0;
+  border-bottom:1px dotted #c9b88c66;
+}
+.flight-row:last-child{border-bottom:none}
+.flight-row .city{font-family:"Ma Shan Zheng",serif;font-size:24px}
+.flight-row .time{font-family:"Caveat",cursive;font-size:24px;color:var(--istj);font-weight:700}
+.flight-row .arrow{color:var(--ink-soft);font-size:18px}
+.flight-tag{
+  display:inline-block;background:var(--stamp);color:#fff8e0;
+  padding:2px 10px;border-radius:4px;font-size:14px;
+  transform:rotate(-2deg);font-family:"Patrick Hand";
+}
+
+/* 头像/角色 */
+.pair{
+  background:#fff8e0;
+  border-radius:10px;
+  padding:18px;
+  border:1px solid #d8c79a;
+  position:relative;
+}
+.pair h3{margin:0 0 8px;font-family:"Ma Shan Zheng";font-size:22px}
+.role{
+  display:flex;align-items:center;gap:12px;
+  padding:8px 10px;
+  margin:6px 0;
+  border-radius:8px;
+  font-family:"ZCOOL XiaoWei";
+  font-size:15px;line-height:1.5;
+}
+.role.enfp{background:var(--enfp-soft);border-left:5px solid var(--enfp)}
+.role.istj{background:var(--istj-soft);border-left:5px solid var(--istj)}
+.avatar{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+  border:2px solid #fff;box-shadow:0 2px 6px #0002;
+}
+.avatar.enfp{background:var(--enfp);color:#fff}
+.avatar.istj{background:var(--istj);color:#fff}
+
+/* 标签 */
+.badge{
+  display:inline-block;
+  font-size:12px;
+  font-family:"Patrick Hand";
+  padding:2px 8px;
+  border-radius:10px;
+  margin-left:6px;
+  vertical-align:middle;
+  border:1px solid;
+}
+.b-enfp{background:var(--enfp-soft);color:var(--enfp);border-color:var(--enfp)}
+.b-istj{background:var(--istj-soft);color:var(--istj);border-color:var(--istj)}
+.b-both{background:var(--both-soft);color:var(--both);border-color:var(--both)}
+.b-must{background:#fff3a8;color:#8a6d00;border-color:#caa83a}
+.b-opt {background:#eee;color:#666;border-color:#aaa}
+.b-eat {background:#ffe0d8;color:#a8420f;border-color:#a8420f}
+
+/* 标签页切换 */
+.tabs{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  margin:8px 0 14px;
+}
+.tab-btn{
+  font-family:"ZCOOL KuaiLe";
+  font-size:18px;
+  padding:8px 18px;
+  background:#fff8e0;
+  border:2px solid #b9a26b;
+  border-radius:24px;
+  cursor:pointer;
+  transition:all .2s;
+  box-shadow:0 2px 0 #b9a26b;
+}
+.tab-btn:hover{transform:translateY(-1px)}
+.tab-btn.active{
+  background:var(--istj);color:#fff;border-color:var(--istj);
+  box-shadow:0 2px 0 #2a4d68;
+}
+.tab-btn[data-tab="day2"].active{background:var(--enfp);border-color:var(--enfp);box-shadow:0 2px 0 #b53f6a}
+
+.tab-pane{display:none}
+.tab-pane.active{display:block}
+
+/* 时间轴 */
+.timeline{
+  position:relative;
+  margin:14px 0 4px 0;
+  padding-left:80px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:64px;top:8px;bottom:8px;
+  width:3px;
+  background:repeating-linear-gradient(180deg,var(--line) 0 6px,transparent 6px 10px);
+}
+.slot{
+  position:relative;
+  background:#fff8e0;
+  border:1px solid #d8c79a;
+  border-radius:10px;
+  margin-bottom:14px;
+  padding:12px 14px 12px 14px;
+  box-shadow:0 6px 14px -10px #0003;
+  transition:all .15s;
+}
+.slot:hover{box-shadow:0 10px 24px -12px #0004}
+.slot::before{
+  content:"";
+  position:absolute;
+  left:-20px;top:18px;
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--paper);
+  border:3px solid var(--istj);
+}
+.day2 .slot::before{border-color:var(--enfp)}
+.slot-time{
+  position:absolute;
+  left:-88px;top:14px;
+  width:60px;text-align:right;
+  font-family:"Caveat",cursive;
+  font-size:22px;font-weight:700;
+  color:var(--istj);
+}
+.day2 .slot-time{color:var(--enfp)}
+.slot-head{
+  display:flex;align-items:flex-start;gap:8px;
+  cursor:pointer;
+}
+.slot-head h3{
+  margin:0;
+  font-family:"Ma Shan Zheng",serif;
+  font-size:21px;
+  letter-spacing:0.5px;
+  flex:1;
+}
+.slot-head .chev{
+  font-family:"Patrick Hand";
+  color:var(--ink-soft);
+  font-size:18px;
+  transition:transform .2s;
+}
+.slot.open .slot-head .chev{transform:rotate(90deg)}
+.slot-body{
+  display:none;
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px dashed #c9b88c66;
+  font-family:"ZCOOL XiaoWei",serif;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--ink-soft);
+}
+.slot.open .slot-body{display:block}
+.slot-body ul{margin:6px 0 6px 18px;padding:0}
+.slot-body li{margin:3px 0}
+
+/* 已完成勾 */
+.check{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;
+  border:2px solid var(--ink-soft);
+  border-radius:6px;
+  background:#fff;
+  cursor:pointer;
+  flex-shrink:0;
+  margin-top:2px;
+  font-family:"Caveat";
+  font-size:18px;color:transparent;
+  transition:all .1s;
+}
+.slot.done .check{background:var(--both);color:#fff;border-color:var(--both)}
+.slot.done .slot-head h3{text-decoration:line-through;color:#8a7d68}
+.slot.done{opacity:.85;background:#fff8e088}
+
+/* 备选卡片 grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(245px,1fr));
+  gap:14px;
+  margin:10px 0;
+}
+.card{
+  background:#fff8e0;
+  border:1px solid #d8c79a;
+  border-radius:10px;
+  padding:12px 14px;
+  position:relative;
+  font-family:"ZCOOL XiaoWei",serif;
+  font-size:14.5px;
+  line-height:1.55;
+  color:var(--ink-soft);
+}
+.card h4{
+  margin:0 0 4px;font-family:"Ma Shan Zheng";font-size:19px;color:var(--ink);
+}
+.card .meta{font-size:12px;color:#806b4a;margin-bottom:6px}
+.card .price{
+  position:absolute;top:8px;right:10px;
+  font-family:"Caveat";color:var(--stamp);font-size:18px;font-weight:700;
+}
+
+/* 章节切换按钮 */
+.section-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.section-tabs button{
+  font-family:"ZCOOL XiaoWei";font-size:14.5px;
+  background:#fff8e0;border:1px solid #c9b88c;
+  border-radius:18px;padding:5px 14px;cursor:pointer;
+}
+.section-tabs button.active{background:var(--ink);color:#fff8e0;border-color:var(--ink)}
+
+.stamp{
+  position:absolute;top:14px;right:18px;
+  font-family:"Ma Shan Zheng";color:var(--stamp);
+  border:3px double var(--stamp);
+  padding:5px 9px;border-radius:6px;
+  font-size:14px;letter-spacing:2px;
+  transform:rotate(8deg);
+  opacity:.85;
+}
+
+/* 进度条 */
+.progress-wrap{
+  margin:16px 0 6px;
+  padding:10px 14px;
+  background:#fff8e0;
+  border:1px dashed #c9b88c;
+  border-radius:8px;
+  font-family:"ZCOOL XiaoWei";
+  font-size:14px;
+  color:var(--ink-soft);
+}
+.progress-bar{
+  margin-top:6px;height:10px;background:#e6d9b0;border-radius:5px;overflow:hidden;
+}
+.progress-bar > span{
+  display:block;height:100%;background:linear-gradient(90deg,var(--istj),var(--enfp));
+  width:0;transition:width .25s ease;
+}
+
+/* 小标 */
+.note{
+  font-family:"Caveat",cursive;
+  background:#fff8a8;
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:6px;
+  font-size:15px;
+  color:#7a5b00;
+  box-shadow:1px 1px 0 #00000010;
+  transform:rotate(-1deg);
+}
+
+/* hr 装饰 */
+.hr{
+  text-align:center;
+  margin:18px 0 8px;
+  font-family:"Caveat";color:var(--line);
+  letter-spacing:6px;
+  font-size:18px;
+}
+
+/* 提示框 */
+.tip{
+  background:#fff3a8;
+  border-left:5px solid #caa83a;
+  padding:10px 12px;
+  border-radius:6px;
+  margin:8px 0;
+  font-family:"ZCOOL XiaoWei";
+  font-size:14px;
+  line-height:1.6;
+  color:#5a4500;
+}
+
+/* 顶部 metadata bar */
+.meta-bar{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  font-family:"ZCOOL XiaoWei";font-size:13px;color:var(--ink-soft);
+  margin-bottom:6px;
+}
+.meta-bar span{
+  background:#fff8e0;border:1px solid #d8c79a;
+  padding:2px 8px;border-radius:10px;
+}
+
+footer{
+  text-align:center;
+  font-family:"Caveat";
+  font-size:18px;
+  color:var(--ink-soft);
+  margin-top:24px;
+}
+footer .heart{color:var(--enfp)}
+
+/* 信封图标 */
+.envelope{
+  display:inline-flex;align-items:center;gap:4px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============= 封面 ============= -->
+<div class="page" id="cover">
+  <div class="tape t1"></div>
+  <div class="tape t2"></div>
+  <div class="stamp">SHANGHAI<br>05·16-17</div>
+
+  <div class="meta-bar">
+    <span>📅 2026.05.16 周六 — 2026.05.17 周日</span>
+    <span>🛬 两人份手帐</span>
+    <span>🌤 上海 · 五月 22~28°C</span>
+  </div>
+
+  <h1 class="title-main">上海·两日手帐</h1>
+  <div class="title-sub">A Weekend in Shanghai · for ENFP & ISTJ</div>
+
+  <div class="cover-grid">
+    <div class="flight-card">
+      <h3>✈️ 航班 · Flights <span class="flight-tag">海航 ↗ 南航</span></h3>
+      <div class="flight-row">
+        <span class="city">HU7613</span>
+        <span class="time">07:30</span>
+        <span class="arrow">✈ → ✈</span>
+        <span class="time">09:50</span>
+        <span style="font-family:'Caveat';color:var(--ink-soft)">2h20m</span>
+      </div>
+      <div style="font-family:'ZCOOL XiaoWei';font-size:14px;color:var(--ink-soft);margin:4px 0 10px">
+        北京首都 T2（海航）→ 上海<b>浦东</b> T2
+      </div>
+      <div class="flight-row">
+        <span class="city">CZ8890</span>
+        <span class="time">20:55</span>
+        <span class="arrow">✈ → ✈</span>
+        <span class="time">23:25</span>
+        <span style="font-family:'Caveat';color:var(--ink-soft)">2h30m</span>
+      </div>
+      <div style="font-family:'ZCOOL XiaoWei';font-size:14px;color:var(--ink-soft);margin-top:4px">
+        上海<b>浦东</b> T2（南航）→ 北京<b>大兴</b> → 立水桥（只能打车 ≈60~90min / 150~250¥）
+      </div>
+      <div class="tip" style="margin-top:10px">
+        ⏰ <b>提前量：</b>周六 5:30 前到首都机场 <b>T2</b>（海航）；周日 <b>19:00</b> 前到浦东 T2（南航）安检。<br>
+        ⚠️ 返程 23:25 落地大兴，地铁末班已过（周日延至 23:30 仍来不及），<b>必须打车</b>，到立水桥约 ¥150~250，预计凌晨 1 点前后到家。
+      </div>
+    </div>
+
+    <div class="pair">
+      <h3>🧑‍🤝‍🧑 旅伴 · Travelers</h3>
+      <div class="role enfp">
+        <div class="avatar enfp">🌸</div>
+        <div>
+          <b>她 · ENFP</b><br>
+          爱拍照、爱街拍、爱探店、爱临时改主意；
+          要的是「氛围感」「人情味」「微小惊喜」。
+        </div>
+      </div>
+      <div class="role istj">
+        <div class="avatar istj">📐</div>
+        <div>
+          <b>你 · ISTJ</b><br>
+          要时刻表、要历史脉络、要规划闭环、要可控可比对；
+          喜欢老建筑、博物馆、明确的午餐时间。
+        </div>
+      </div>
+      <div class="tip">
+        🤝 <b>本手帐的平衡策略</b>：
+        每个时段都给出 ISTJ 主线 + ENFP 备选；
+        紧凑列出 16+ 个选项，可任意删减；颜色标记
+        <span class="badge b-istj">ISTJ向</span>
+        <span class="badge b-enfp">ENFP向</span>
+        <span class="badge b-both">双方</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr">✦ ✦ ✦</div>
+  <div class="progress-wrap">
+    🎯 完成进度：<span id="prog-text">0 / 0</span>
+    <div class="progress-bar"><span id="prog-bar"></span></div>
+    <div style="font-size:12px;color:#806b4a;margin-top:4px">点击每个时段卡片左侧的方框可勾选完成 ✓</div>
+  </div>
+</div>
+
+<!-- ============= 行前小清单 ============= -->
+<div class="page">
+  <div class="tape t1"></div>
+  <h2 class="section">📋 行前小清单 · Pre-flight Checklist</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>📱 必装 APP</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>大众点评 / 美团（订座、排队）</li>
+        <li>高德 / 滴滴（机场到市区）</li>
+        <li>携程 / 飞猪（航班动态、寄存）</li>
+        <li>Metro 大都会（地铁刷码）</li>
+        <li>小红书（实时蹲新店）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🎒 必带</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>身份证 + 登机牌（电子版备份）</li>
+        <li>充电宝（≤100Wh，可手提）</li>
+        <li>轻便外套（夜外滩有江风）</li>
+        <li>小相机 / 防滑鞋（梧桐区暴走）</li>
+        <li>胃药、雨伞（5月梅雨前段）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>💰 预算估算</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>住宿 1 晚：¥1200~2000</li>
+        <li>正餐 4 顿：¥800~1500</li>
+        <li>咖啡甜品：¥200~400</li>
+        <li>市内交通：¥150~300</li>
+        <li>两人合计：约 <b>¥2500~4500</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🎟️ 提前预约</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>豫园：08:30 开园前 15min 到</li>
+        <li>上海中心 118 层观光厅：官方小程序</li>
+        <li>米其林餐厅晚餐：周五前订</li>
+        <li>外滩 Flair / VUE：电话/微信订景观位</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============= 主行程 ============= -->
+<div class="page">
+  <div class="tape t1"></div>
+  <div class="tape t2"></div>
+  <h2 class="section">🗓 主行程 · Itinerary</h2>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="day1">📅 Day 1 · 05/16 周六（梧桐区 + 外滩）</button>
+    <button class="tab-btn" data-tab="day2">📅 Day 2 · 05/17 周日（老城厢 + 浦东 + 返程）</button>
+  </div>
+
+  <!-- ============= Day 1 ============= -->
+  <div class="tab-pane active" id="day1">
+    <div class="timeline">
+
+      <div class="slot">
+        <div class="slot-time">05:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>首都机场 T3 集合 · 安检 <span class="badge b-istj">ISTJ向</span> <span class="badge b-must">必</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • HU7613 海航值机柜台位于 <b>T2</b>（具体以登机牌为准）<br>
+          • 早高峰前打车 30~40min；地铁机场 2 号线终点东直门，发车约 6:00 起。<br>
+          • 安检后 T2 有海南航空贵宾厅、龙腾通道可休息。<br>
+          • <span class="note">小心检查充电宝瓦数标识，无标识不允许托运也不允许过安检。</span>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">07:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>✈️ HU7613 起飞 → 上海虹桥 T2 <span class="badge b-both">双方</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          飞行约 2h30m，海航国内常用 A321/B737。<br>
+          • 选位建议：左侧靠窗（A 列）下降时能看到陆家嘴；<br>
+          • 早餐机上简餐为主，建议机场买杯热咖啡。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">09:50</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🛬 落地浦东 T2 → 地铁 2 号线 → 换乘 10 号线 → 交通大学站 <span class="badge b-istj">ISTJ向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 出 T2 沿"轨道交通"指示牌下行 → 2 号线（绿线，方向：徐泾东）。<br>
+          • 坐至<b>中山公园站</b>换乘 10 号线（方向：东方体育中心），再坐 1 站到<b>交通大学站</b>。<br>
+          • 出交通大学站步行约 150m 即到武康大楼。票价 ¥8/人，全程约 60min。<br>
+          • 出租车可直达：¥140~180，约 50~60min（⚠️ 浦东机场出口不能叫网约车，需排队上出租车或提前约携程接机）。<br>
+          • <span class="note">行李可拖，2 号线沿途有电梯；抵达武康路约 10:50-11:00。</span>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">11:10</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🏨 寄存行李 · 武康路一带酒店 <span class="badge b-istj">ISTJ向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          推荐三档住宿，任选一家寄存 / 提前办理 early check-in：<br>
+          <b>① 隐居繁华·武康路公馆</b>（民宿，¥1000+，离武康大楼 100m）<br>
+          <b>② 上海建业里嘉佩乐酒店</b>（石库门别墅，¥3000+，ENFP 拍照）<br>
+          <b>③ 上海绍兴路 No.27 / 简单生活酒店</b>（小众设计，¥800+）<br>
+          📦 携程"寄存吧"30~50¥/件全天可寄。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">11:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>📸 武康大楼 · 武康路慢游 <span class="badge b-both">双方</span> <span class="badge b-must">必</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 武康大楼（诺曼底公寓，1924，邬达克设计）：从马路<b>对面斑马线西南角</b>仰拍，避开正门拥挤。<br>
+          • 沿武康路向北：巴金故居 → 黄兴故居（武康路 393，旅游咨询中心 + 武康康玩偶）→ 武康庭（378 号，% Arabica 在内）。<br>
+          • 顺路打卡：LE LABO 集雅香氛实验室（135 号），ENFP 必看；<br>
+          • <span class="note">推荐时长 60~80min；走累了直接拐进咖啡馆。</span>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">12:20</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🍚 午餐 · 东欣酒家（武康路本帮菜）<span class="badge b-istj">ISTJ向</span> <span class="badge b-eat">吃</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          人均 ¥130，地址：武康路 274 号<br>
+          🍽 必点：扬州炝鲈鱼（每日限量）、响油鳝丝、酱爆猪肝、葱香小排、咸肉菜饭。<br>
+          • 浓油赤酱本帮味，桌少需排号或在 12:00 前到。<br>
+          ENFP 备选：<b>Frasca</b>（武康庭，意式 brunch，人均 ¥250）。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">13:40</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>☕ 安福路咖啡跳店 · 三顿半 / 小熊咖啡 / RAC <span class="badge b-enfp">ENFP向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          从武康大楼东行 → 安福路（全长仅 800m，10+ 网红聚集）：<br>
+          • <b>13DE MARZO 小熊咖啡</b>：杯沿挂萌熊玩偶，安福路顶流；<br>
+          • <b>三顿半 · 原力飞行</b>（安福路 322）：精品咖啡品牌线下首店；<br>
+          • <b>RAC BAR</b>（武康路 322 与安福路转角）：法式可丽饼 + 院落露台；<br>
+          • <b>多抓鱼循环商店</b>（安福路 300）：旧书 / 旧衣 / 设计杂货；<br>
+          • <b>上海话剧艺术中心</b>（ISTJ 兴趣点）：买当晚 19:30 票现实之选。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">15:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🏛 张园 + 兴业太古汇 <span class="badge b-both">双方</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          打车 / 7 号线 8min 到南京西路：<br>
+          • <b>张园</b>：上海现存最完整最大的石库门建筑群，2024 西区开放后成快闪店圣地（Gucci、Dior、宝格丽都在此办过艺术展）。ISTJ 可关注百年建筑标识、ENFP 拍石库门红砖。<br>
+          • <b>兴业太古汇 / 镛舍</b>：地下美食广场可补给，上海 No.1 茑屋书店在此。<br>
+          • <span class="note">建议拍照黄金时间 16:30~17:30，光线柔和。</span>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">17:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🍴 晚餐 · 进贤路 · 兰心餐厅 / 海金滋 <span class="badge b-both">双方</span> <span class="badge b-eat">吃</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          人均 ¥120~180，地址：进贤路 130 号（兰心）/ 124 号（海金滋）<br>
+          🍽 必点：红烧肉、糖醋小排、油爆河虾、响油鳝丝、葱烤大排、草头圈子。<br>
+          ⚠️ 排队：兰心晚市 30+ 分钟，<b>17:00 前到</b>或<b>18:45 后再去</b>。周末不接单人堂食。<br>
+          替代方案：<b>老吉士</b>（天平路 41，人均 ¥250，需提前订）；<b>建国 328 小馆</b>（人均 ¥180，本帮口味偏轻盐，ISTJ 友好）。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">19:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🌃 外滩夜游 + 高空酒吧 <span class="badge b-both">双方</span> <span class="badge b-must">必</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          打车 15min 到外滩。<b>最佳走法（ISTJ 路线闭环）</b>：<br>
+          1. 北京东路口 → 万国建筑群仰望视角；<br>
+          2. 沿江步道往南到陈毅广场，对岸陆家嘴三件套全景；<br>
+          3. <b>外白渡桥</b>（情深深雨蒙蒙取景地，少人）；<br>
+          4. <b>圆明园路</b>（夜色下红砖巷，ENFP 拍照圣地）。<br>
+          🍸 <b>高空酒吧二选一</b>：<br>
+          ▸ <b>Flair · 浦东丽思 58F</b>（最高/最贵，¥350+/杯，须 smart casual）<br>
+          ▸ <b>POP · 外滩 3 号 7F</b>（米其林餐厅露台，正对陆家嘴，¥180+/杯）<br>
+          ENFP 必备：在外滩"和平饭店"对面拍一张穿大衣回头照。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">22:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🛏 回酒店休息 <span class="badge b-istj">ISTJ向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 打车从外滩回武康路 / 新天地一带 ≈ 20min ¥40~60。<br>
+          • <span class="note">提前订好次日早 9:00 的退房延迟或行李寄存。</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============= Day 2 ============= -->
+  <div class="tab-pane day2" id="day2">
+    <div class="timeline">
+
+      <div class="slot">
+        <div class="slot-time">08:00</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🥟 早餐 · 大壶春生煎（云南路总店）<span class="badge b-both">双方</span> <span class="badge b-eat">吃</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          1932 创店，米其林必比登推介。云南南路 71 号（更老更地道）/ 四川中路（人少）。<br>
+          🍽 套餐：鲜肉生煎 4 只 + 咖喱牛肉汤 + 蛋皮汤 ≈ ¥25/人。<br>
+          ENFP 备选：<b>桃园眷村</b>（永康路精致台式早餐）/ <b>虹口糕团</b>（特色青团、双酿团）。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">09:00</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🏯 豫园 · 老城厢漫步 <span class="badge b-both">双方</span> <span class="badge b-must">必</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 8:30 开园前 10 分钟到，门票 ¥30。园内江南园林典范，玉玲珑、点春堂是亮点。<br>
+          • 园外城隍庙九曲桥拍古风照（避开正午阳光直射）；<br>
+          • <b>豫园·Pop Mart 城市乐园</b>（2024 开业）：ENFP 必逛。<br>
+          • <b>南翔馒头店</b>：1F 外带蟹粉小笼即可，2F 堂食排长队不值。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">11:00</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>⛴ 摆渡轮渡 · 2 元过江体验 <span class="badge b-enfp">ENFP向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 金陵东路渡口 → 东昌路渡口，¥2/人，10min 江风全程。<br>
+          • 老上海最便宜的"游船"，ENFP 大爱；ISTJ 注意收藏地铁卡刷码即可。<br>
+          • 到达浦东后步行到陆家嘴 12min。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">12:00</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🌆 陆家嘴 · 上海中心 118F 观光厅 <span class="badge b-istj">ISTJ向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 票价 ¥180/人，提前 1 天小程序订；上午能见度好。<br>
+          • ISTJ 数据控福利：546m 高，世界第二高楼，自上而下看城市规划布局；<br>
+          • ENFP 替代选项：<b>陆家嘴中心 L+ Mall · 阿宝去哪儿展</b>、<b>三件套灯光秀（夜间）</b>。<br>
+          • 时间紧的话本时段可<b>整段删除</b>，换"上海博物馆东馆"。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">13:30</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🍱 午餐 · 前滩太古里 / 浦东国金 IFC <span class="badge b-both">双方</span> <span class="badge b-eat">吃</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          二选一：<br>
+          ▸ <b>前滩太古里</b>（地铁 6 号线 6 站）：2026 新二期开业，首店 50+，ENFP 探店。推荐 <b>Tomofuku 一风堂</b> 拉面 / <b>蓝瓶咖啡前滩店</b>。<br>
+          ▸ <b>IFC 商场 B2 鼎泰丰</b>（陆家嘴）：方便快速，靠近上海中心。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">15:00</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🎨 西岸美术馆大道 OR 田子坊 · 二选一 <span class="badge b-enfp">ENFP向</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          <b>选项 A · 西岸艺术大道</b>（ENFP+ISTJ 都满意）：<br>
+          • <b>西岸美术馆</b>（蓬皮杜五年展期常驻）+ <b>油罐艺术中心</b>（旧工业改造，草坪很好拍）；<br>
+          • 龙腾大道沿江骑行 / 跑步，ENFP 大喜；<br>
+          • 人均门票 ¥100，馆内现展请在公众号查。<br><br>
+          <b>选项 B · 田子坊 + 思南公馆</b>（更休闲）：<br>
+          • 田子坊石库门弄堂 + 手作小店，约 1h；<br>
+          • 思南公馆下午茶，老洋房氛围满分。
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">17:00</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>🧳 回酒店取行李 → 前往浦东 T2 <span class="badge b-istj">ISTJ向</span> <span class="badge b-must">必</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 网约车直达浦东 T2：¥140~200，50~60min（晚高峰留余量）；<br>
+          • 地铁：10 号线交通大学→中山公园换 2 号线→浦东机场，约 60min，¥8；<br>
+          • <b>19:00 前到 T2 安检</b>（CZ8890 20:55 起飞，留 90min 余量）；<br>
+          • <span class="note">浦东 T2 候机区餐饮选择多，可在此解决晚餐。</span>
+        </div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-time">20:55</div>
+        <div class="slot-head">
+          <div class="check">✓</div>
+          <h3>✈️ CZ8890 起飞 → 北京大兴（南航）<span class="badge b-both">双方</span></h3>
+          <div class="chev">▶</div>
+        </div>
+        <div class="slot-body">
+          • 23:25 落地大兴机场 → 提取行李约 20~30min → 00:00 出发；<br>
+          • <b>回立水桥</b>（⚠️ 地铁末班已过，<b>只能打车</b>）：<br>
+          &nbsp;&nbsp;▸ 滴滴/首汽 ¥150~250，60~90min，预计凌晨 1:00~1:30 到家；<br>
+          &nbsp;&nbsp;▸ 大兴机场线末班 23:30（周日延时），落地后来不及，<b>不可依赖</b>；<br>
+          &nbsp;&nbsp;▸ 自驾接机：大兴机场 P2 停车场。<br>
+          • <span class="note">建议落地前 30min 在滴滴"机场预约用车"预约，或提前告知家人接机。</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============= 备选清单 ============= -->
+<div class="page">
+  <div class="tape t2"></div>
+  <h2 class="section">🔄 备选清单 · 可删减可置换</h2>
+
+  <div class="section-tabs" id="optTabs">
+    <button class="active" data-opt="eat">🍴 吃</button>
+    <button data-opt="drink">☕ 喝</button>
+    <button data-opt="sight">📸 看</button>
+    <button data-opt="stay">🛏 住</button>
+  </div>
+
+  <!-- 吃 -->
+  <div class="opt-pane" data-opt="eat">
+    <div class="grid">
+      <div class="card"><span class="price">¥120</span>
+        <h4>兰心餐厅 <span class="badge b-both">双方</span></h4>
+        <div class="meta">进贤路 130 · 米其林必比登</div>
+        红烧肉 / 草头圈子 / 葱烤排条。<br>不接预订，17 点前到。
+      </div>
+      <div class="card"><span class="price">¥130</span>
+        <h4>海金滋 <span class="badge b-both">双方</span></h4>
+        <div class="meta">进贤路 124 · 兰心同源</div>
+        葱烤大排是 TOP1；酱爆猪肝爽嫩。
+      </div>
+      <div class="card"><span class="price">¥250</span>
+        <h4>老吉士 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">天平路 41 · 蔡澜推荐</div>
+        红烧肉 + 葱烤鸦片鱼头 + 吉士咸鸡；提前订座。
+      </div>
+      <div class="card"><span class="price">¥180</span>
+        <h4>建国 328 小馆 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">建国西路 328</div>
+        台籍老板调整后的轻盐本帮，ISTJ 胃友好。
+      </div>
+      <div class="card"><span class="price">¥50</span>
+        <h4>兰亭餐厅 <span class="badge b-both">双方</span></h4>
+        <div class="meta">西藏南路 · 排队 37 年</div>
+        鸡骨酱、面拖黄鱼。地道家常本帮。
+      </div>
+      <div class="card"><span class="price">¥350</span>
+        <h4>翠亭酒家 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">弄堂里 · 徐峥常去</div>
+        竹网鲈鱼 / 蟹粉年糕；预订必要。
+      </div>
+      <div class="card"><span class="price">¥25</span>
+        <h4>大壶春生煎 <span class="badge b-both">双方</span></h4>
+        <div class="meta">云南南路 71 / 四川中路</div>
+        清水派祖师爷，米其林必比登。
+      </div>
+      <div class="card"><span class="price">¥30</span>
+        <h4>东泰祥生煎 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">重庆北路 188</div>
+        半发酵派，非物质文化遗产。
+      </div>
+      <div class="card"><span class="price">¥45</span>
+        <h4>南翔馒头店 <span class="badge b-both">双方</span></h4>
+        <div class="meta">豫园九曲桥畔</div>
+        1F 外带蟹粉小笼最划算；2F 堂食慎入。
+      </div>
+      <div class="card"><span class="price">¥35</span>
+        <h4>阿娘黄鱼面 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">思南路 36</div>
+        浓汤黄鱼面 + 糟卤毛豆，老上海怀旧打卡。
+      </div>
+      <div class="card"><span class="price">¥800</span>
+        <h4>福和慧（米其林二星） <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">愚园路 1037</div>
+        高级中式素食 / 周日 brunch 可订。
+      </div>
+      <div class="card"><span class="price">¥600</span>
+        <h4>大董海参府 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">新天地</div>
+        北京来沪老牌，烤鸭仪式感强。
+      </div>
+    </div>
+  </div>
+
+  <!-- 喝 -->
+  <div class="opt-pane" data-opt="drink" style="display:none">
+    <div class="grid">
+      <div class="card"><span class="price">¥40</span>
+        <h4>% Arabica 武康庭 <span class="badge b-both">双方</span></h4>
+        <div class="meta">武康路 378 武康庭内</div>
+        京都来的网红，西班牙拿铁。
+      </div>
+      <div class="card"><span class="price">¥45</span>
+        <h4>13DE MARZO 小熊咖啡 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">安福路</div>
+        挂杯小熊玩偶，安福路顶流。
+      </div>
+      <div class="card"><span class="price">¥40</span>
+        <h4>三顿半 · 原力飞行 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">安福路 322</div>
+        国货精品咖啡线下首店，挂耳味稳定。
+      </div>
+      <div class="card"><span class="price">¥120</span>
+        <h4>RAC BAR <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">武康/安福路口</div>
+        法式可丽饼 + 院落露台，brunch 之神。
+      </div>
+      <div class="card"><span class="price">¥45</span>
+        <h4>老麦咖啡馆 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">武康大楼内</div>
+        老麦从全世界淘来的家具杂货。
+      </div>
+      <div class="card"><span class="price">¥60</span>
+        <h4>Coffee Tree <span class="badge b-both">双方</span></h4>
+        <div class="meta">武康庭洋房</div>
+        肖战来打卡过的庭园澳白。
+      </div>
+      <div class="card"><span class="price">¥350</span>
+        <h4>Flair Rooftop Bar <span class="badge b-both">双方</span></h4>
+        <div class="meta">浦东丽思 58F · 上海最高</div>
+        外滩 + 江景 + 东方明珠全包；smart casual。
+      </div>
+      <div class="card"><span class="price">¥180</span>
+        <h4>POP at 外滩 3 号 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">7F · 米其林餐厅露台</div>
+        外滩弧形中段最好视野。
+      </div>
+      <div class="card"><span class="price">¥220</span>
+        <h4>TOPS 外滩悦榕庄天台 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">外滩 18 号 7F</div>
+        360° 全景，调酒口碑好。
+      </div>
+      <div class="card"><span class="price">¥260</span>
+        <h4>Yi Lounge 弋酒廊 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">J Hotel 84F · 全球最高酒店</div>
+        看外滩万国建筑群最佳。
+      </div>
+      <div class="card"><span class="price">¥110</span>
+        <h4>VUE Bar（非常时髦） <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">外滩茂悦 32F</div>
+        含一杯饮料 ¥110，露天泡脚池网红。<br>
+        ⚠️ 行前确认营业状态。
+      </div>
+      <div class="card"><span class="price">¥80</span>
+        <h4>外滩源·Fine 红房子 <span class="badge b-both">双方</span></h4>
+        <div class="meta">圆明园路</div>
+        外滩源历史建筑区独立酒吧，更安静。
+      </div>
+    </div>
+  </div>
+
+  <!-- 看 -->
+  <div class="opt-pane" data-opt="sight" style="display:none">
+    <div class="grid">
+      <div class="card"><span class="price">免费</span>
+        <h4>武康大楼 <span class="badge b-both">双方</span></h4>
+        <div class="meta">武康路 / 淮海中路口</div>
+        邬达克设计 1924；马路对面斑马线西南角拍最佳。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>张园 <span class="badge b-both">双方</span></h4>
+        <div class="meta">茂名北路 · 太古运营</div>
+        上海最大石库门群，2026 东区开放预期。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>外滩 + 万国建筑群 <span class="badge b-both">双方</span></h4>
+        <div class="meta">中山东一路</div>
+        ISTJ 路线：北京东路 → 陈毅广场 → 外白渡桥。
+      </div>
+      <div class="card"><span class="price">¥30</span>
+        <h4>豫园 + 老城厢 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">福佑路 · 江南园林</div>
+        8:30 准点进园 / Pop Mart 城市乐园新开。
+      </div>
+      <div class="card"><span class="price">¥180</span>
+        <h4>上海中心 118F 观光厅 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">陆家嘴 · 546m</div>
+        世界第二高楼，提前一天预约。
+      </div>
+      <div class="card"><span class="price">¥0/¥100</span>
+        <h4>上海博物馆 东馆 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">浦东花木 · 2024 开放</div>
+        中国古代青铜器 / 玉器集大成，ISTJ 大爱。
+      </div>
+      <div class="card"><span class="price">¥100</span>
+        <h4>西岸美术馆 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">龙腾大道</div>
+        蓬皮杜五年展期常驻 + 沿江草坪。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>油罐艺术中心 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">龙腾大道 2380</div>
+        旧工业改造，巨型草坪 + 当代展。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>蟠龙天地 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">青浦 · 古镇新生</div>
+        水乡 + 商业 + 当代肉铺；地铁 17 号线。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>前滩太古里 <span class="badge b-both">双方</span></h4>
+        <div class="meta">浦东后滩 · 健康概念</div>
+        50%+ 上海首店；二期 2026 开。
+      </div>
+      <div class="card"><span class="price">¥2</span>
+        <h4>摆渡轮渡 金陵东路-东昌 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">10 分钟过江</div>
+        老上海最浪漫的 2 块钱体验。
+      </div>
+      <div class="card"><span class="price">¥80</span>
+        <h4>上海话剧艺术中心 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">安福路 288</div>
+        春日剧目《苍穹》《2:22》；当日票常有。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>圆明园路 + 外滩源 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">外滩北端</div>
+        红砖老洋房巷子，夜景拍照圣地。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>田子坊 + 思南公馆 <span class="badge b-both">双方</span></h4>
+        <div class="meta">泰康路 / 思南路</div>
+        石库门 + 法租界洋房 + 下午茶。
+      </div>
+      <div class="card"><span class="price">免费</span>
+        <h4>愚园路 city walk <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">长宁/静安</div>
+        弄堂改造 + 设计小店，比安福路安静。
+      </div>
+    </div>
+  </div>
+
+  <!-- 住 -->
+  <div class="opt-pane" data-opt="stay" style="display:none">
+    <div class="grid">
+      <div class="card"><span class="price">¥3000+</span>
+        <h4>和平饭店（Fairmont） <span class="badge b-both">双方</span></h4>
+        <div class="meta">外滩 · 1929 Art Deco</div>
+        老上海地标，江景房一定要订。
+      </div>
+      <div class="card"><span class="price">¥2400+</span>
+        <h4>W Shanghai · 外滩 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">北外滩</div>
+        前卫设计 + 江景泳池，派对感强。
+      </div>
+      <div class="card"><span class="price">¥2200+</span>
+        <h4>璞丽酒店（PuLi） <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">静安寺南京西路</div>
+        东方禅意静奢，私密性强。
+      </div>
+      <div class="card"><span class="price">¥2500+</span>
+        <h4>镛舍（The Middle House） <span class="badge b-both">双方</span></h4>
+        <div class="meta">兴业太古汇 · Piero Lissoni</div>
+        极简设计 + 海派文化融合，设计控首选。
+      </div>
+      <div class="card"><span class="price">¥1600+</span>
+        <h4>外滩英迪格 <span class="badge b-both">双方</span></h4>
+        <div class="meta">十六铺</div>
+        Char Bar 270° 江景，性价比好。
+      </div>
+      <div class="card"><span class="price">¥1200+</span>
+        <h4>外滩璞硯酒店 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">外滩新设计酒店</div>
+        小红书热门，房型独特。
+      </div>
+      <div class="card"><span class="price">¥900+</span>
+        <h4>URSIDE Hotel 外滩有再 <span class="badge b-enfp">ENFP向</span></h4>
+        <div class="meta">外滩 · 文艺民宿型</div>
+        花园 + 共享休息室，私密。
+      </div>
+      <div class="card"><span class="price">¥1000+</span>
+        <h4>隐居繁华·武康路公馆 <span class="badge b-both">双方</span></h4>
+        <div class="meta">武康路 / 安福路 / 五原路口</div>
+        city walk 中心点，性价比之王。
+      </div>
+      <div class="card"><span class="price">¥800+</span>
+        <h4>绍兴路 No.27 / 简单生活 <span class="badge b-istj">ISTJ向</span></h4>
+        <div class="meta">绍兴路 · 设计精品</div>
+        ISTJ 喜欢的安静老洋房改造。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= 交通卡 ============= -->
+<div class="page">
+  <div class="tape t3"></div>
+  <h2 class="section">🚇 交通速查 · Transport</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>🛬 浦东 T2 → 武康路</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>地铁 2 号线→中山公园换乘 10 号线→交通大学站，60min ¥8</li>
+        <li>出租车（T2 到达层排队），50~60min ¥140~180</li>
+        <li>⚠️ 浦东机场出口<b>不可叫网约车</b>，需排出租或预约接机</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🛬 浦东 T2 → 外滩</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>地铁 2 号线 → 南京东路站，约 50min ¥7</li>
+        <li>出租车，40~50min ¥120~160</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🚇 市内日常</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>下载"Metro 大都会"刷码进站</li>
+        <li>2/10 号线串起多数景点</li>
+        <li>共享单车（哈啰/美团）适合 1~3km</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🚖 周日返浦东 T2（南航 CZ8890）</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>17:00 出发最稳，19:00 前到 T2（留 90min）</li>
+        <li>网约车直达 T2，¥140~200，晚高峰 50~60min</li>
+        <li>地铁：10 号线→中山公园→2 号线→浦东 T2，约 60min ¥8</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🏠 大兴机场 → 立水桥</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>⚠️ 23:25 落地，地铁末班已过，<b>只能打车</b></li>
+        <li>滴滴/首汽 ¥150~250 · 60~90min（深夜路少更快）</li>
+        <li>自驾接机：大兴机场 P2 停车场</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>⏱ 提前量原则</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>国内航班虹桥：提前 90min 到</li>
+        <li>周日晚高峰打车提前 20min 叫</li>
+        <li>预约用车（落地前 30min 叫）更稳</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============= 应急 & 双向贴士 ============= -->
+<div class="page">
+  <div class="tape t1"></div>
+  <h2 class="section">💡 ISTJ × ENFP 相处贴士</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>🌸 给 ENFP 的提醒</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>每天给 ISTJ 留 30min 缓冲，不要临时插太多项</li>
+        <li>提前发地址 / 路线给 ISTJ，他需要"路径预演"</li>
+        <li>把 city walk 计成"探险任务"会更愉快</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>📐 给 ISTJ 的提醒</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>允许 ENFP 在咖啡馆多坐 15min，那是她的充电</li>
+        <li>计划留 20% 弹性时间，别把每个时段卡死</li>
+        <li>她拍照时帮她拎包，比说"快点走"更有用</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🆘 应急资源</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>大众医院：华山医院 / 仁济（西院）</li>
+        <li>24h 药店：国大药房（南京西路）</li>
+        <li>派出所：每个地铁站附近</li>
+        <li>失物：地铁 12319 / 出租 96961</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🧧 文化礼仪</h4>
+      <ul style="margin:4px 0 0 16px;padding:0">
+        <li>本帮菜馆现金 + 微信都行，多数不上支付宝</li>
+        <li>武康路咖啡馆下午常需排队，工作日 ENFP 更顺心</li>
+        <li>高空酒吧避免穿短裤、拖鞋，男士衬衫为佳</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="hr">✦ 完 ✦</div>
+  <footer>
+    Made with <span class="heart">♥</span> for an ENFP and an ISTJ ·
+    上海见 · 2026.05.16
+  </footer>
+</div>
+
+</div>
+
+<script>
+// 时段折叠 + 打勾
+document.querySelectorAll('.slot').forEach(slot=>{
+  const head=slot.querySelector('.slot-head');
+  const check=slot.querySelector('.check');
+  head.addEventListener('click',(e)=>{
+    if(e.target.closest('.check')) return;
+    slot.classList.toggle('open');
+  });
+  check.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    slot.classList.toggle('done');
+    updateProgress();
+  });
+});
+
+// Tab 切换
+const tabBtns=document.querySelectorAll('.tab-btn');
+const panes=document.querySelectorAll('.tab-pane');
+tabBtns.forEach(b=>{
+  b.addEventListener('click',()=>{
+    tabBtns.forEach(x=>x.classList.remove('active'));
+    panes.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+  });
+});
+
+// 备选清单 tab
+const optBtns=document.querySelectorAll('#optTabs button');
+const optPanes=document.querySelectorAll('.opt-pane');
+optBtns.forEach(b=>{
+  b.addEventListener('click',()=>{
+    optBtns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    optPanes.forEach(p=>{
+      p.style.display = (p.dataset.opt===b.dataset.opt)?'block':'none';
+    });
+  });
+});
+
+// 进度
+function updateProgress(){
+  const all=document.querySelectorAll('.slot');
+  const done=document.querySelectorAll('.slot.done');
+  const pct = all.length? Math.round(done.length/all.length*100):0;
+  document.getElementById('prog-text').textContent = `${done.length} / ${all.length}（${pct}%）`;
+  document.getElementById('prog-bar').style.width = pct+'%';
+}
+updateProgress();
+</script>
+</body>
+</html>
