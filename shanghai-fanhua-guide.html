@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ 繁花上海 · 周末两日手账 · 立水桥出发</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdf6e3;
+  --paper:#fffaf0;
+  --paper2:#fff8f0;
+  --ink:#2c1a0e;
+  --ink2:#5c3d1e;
+  --red:#c0392b;
+  --gold:#d4a017;
+  --teal:#1a7a6e;
+  --pink:#e85c8a;
+  --navy:#1a3a5c;
+  --green:#4a7c59;
+  --purple:#6b3fa0;
+  --orange:#e07b39;
+  --yellow:#f5c842;
+  --line:#d4b896;
+  --shadow:rgba(44,26,14,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"ZCOOL XiaoWei","Noto Serif SC",serif;
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 800px 600px at 10% 20%,#fde8d0 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 90% 80%,#fce4f0 0%,transparent 60%),
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(212,184,150,.3) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(212,184,150,.15) 40px);
+  color:var(--ink);
+  min-height:100vh;
+  padding:0 0 80px;
+}
+
+/* ====== 顶部导航 ====== */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:linear-gradient(135deg,#1a0a00 0%,#2d1500 50%,#1a0a00 100%);
+  border-bottom:3px solid var(--gold);
+  padding:0;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{
+  flex-shrink:0;
+  background:none;border:none;
+  color:#e8d5a0;
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:.9rem;
+  padding:12px 16px;
+  cursor:pointer;
+  transition:all .25s;
+  white-space:nowrap;
+  position:relative;
+}
+.nav-btn::after{
+  content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:0;height:3px;background:var(--gold);transition:width .25s;
+}
+.nav-btn:hover,.nav-btn.active{color:#fff;background:rgba(255,255,255,.1)}
+.nav-btn:hover::after,.nav-btn.active::after{width:100%}
+
+/* ====== 封面 ====== */
+.cover{
+  background:linear-gradient(160deg,#1a0a00 0%,#3d1800 40%,#1a3040 100%);
+  padding:60px 20px 80px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cover::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 50%,rgba(192,57,43,.2) 0%,transparent 50%),
+    radial-gradient(circle at 70% 30%,rgba(212,160,23,.15) 0%,transparent 40%);
+  pointer-events:none;
+}
+.cover-lanterns{
+  display:flex;justify-content:center;gap:30px;margin-bottom:20px;
+  font-size:2.5rem;animation:sway 3s ease-in-out infinite;
+}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.cover-title{
+  font-family:"Ma Shan Zheng",serif;
+  font-size:clamp(2rem,6vw,4rem);
+  color:#fff;
+  text-shadow:0 0 30px rgba(212,160,23,.8),0 2px 4px rgba(0,0,0,.5);
+  letter-spacing:.1em;
+  margin-bottom:8px;
+}
+.cover-sub{
+  font-family:"ZCOOL KuaiLe",serif;
+  color:#e8d5a0;font-size:1.1rem;margin-bottom:4px;letter-spacing:.15em;
+}
+.cover-date{
+  color:var(--gold);font-size:.95rem;margin-bottom:30px;letter-spacing:.2em;
+}
+.cover-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:30px;}
+.tag{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);
+  color:#f0dfc0;border-radius:999px;padding:4px 14px;font-size:.85rem;
+  backdrop-filter:blur(4px);
+}
+.scroll-hint{color:#e8d5a0;font-size:.85rem;animation:bounce .8s ease-in-out infinite alternate;}
+@keyframes bounce{from{transform:translateY(0)}to{transform:translateY(6px)}}
+
+/* ====== 主体区域 ====== */
+.main{max-width:1100px;margin:0 auto;padding:30px 16px;}
+
+/* ====== 分区标题 ====== */
+.section{margin-bottom:50px;scroll-margin-top:55px;}
+.section-title{
+  display:flex;align-items:center;gap:12px;
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:1.6rem;
+  color:var(--ink);
+  margin-bottom:24px;
+  padding-bottom:10px;
+  border-bottom:3px dashed var(--line);
+}
+.section-title .icon{font-size:1.8rem}
+.section-title .badge{
+  font-size:.75rem;
+  background:var(--red);color:#fff;
+  border-radius:999px;padding:2px 10px;
+  font-family:"ZCOOL XiaoWei";
+  margin-left:auto;
+}
+
+/* ====== 卡片网格 ====== */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+.card{
+  background:var(--paper);
+  border-radius:12px;
+  border:2px solid var(--line);
+  padding:20px;
+  position:relative;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:4px 4px 0 rgba(180,140,90,.2);
+}
+.card:hover{transform:translateY(-3px);box-shadow:6px 8px 0 rgba(180,140,90,.25);}
+.card-header{
+  display:flex;align-items:center;gap:10px;
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:1.15rem;
+  margin-bottom:12px;
+}
+.card-icon{font-size:1.5rem}
+.card p{font-size:.9rem;line-height:1.8;color:var(--ink2);}
+.card ul{padding-left:18px;font-size:.9rem;line-height:1.9;color:var(--ink2);}
+.card-tag{
+  display:inline-block;font-size:.75rem;
+  border-radius:999px;padding:2px 10px;margin:4px 3px 0 0;
+}
+
+/* ====== 胶带 ====== */
+.tape{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);
+  width:80px;height:22px;
+  background:rgba(255,235,120,.75);
+  border-radius:3px;
+  box-shadow:0 1px 4px rgba(0,0,0,.12);
+}
+.tape.pink{background:rgba(255,180,168,.75);transform:translateX(-50%) rotate(2deg)}
+.tape.blue{background:rgba(168,210,255,.75);transform:translateX(-50%) rotate(-1deg)}
+.tape.green{background:rgba(168,230,190,.75);transform:translateX(-50%) rotate(1.5deg)}
+
+/* ====== 时间轴 ====== */
+.timeline{position:relative;padding-left:36px;}
+.timeline::before{
+  content:"";position:absolute;left:12px;top:0;bottom:0;
+  width:3px;background:linear-gradient(to bottom,var(--gold),var(--pink),var(--teal));
+  border-radius:2px;
+}
+.tl-item{position:relative;margin-bottom:28px;}
+.tl-dot{
+  position:absolute;left:-30px;top:4px;
+  width:20px;height:20px;border-radius:50%;
+  border:3px solid var(--paper);
+  box-shadow:0 0 0 2px currentColor;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;
+}
+.tl-time{
+  font-family:"Caveat",cursive;
+  font-size:1rem;color:var(--ink2);
+  margin-bottom:4px;
+}
+.tl-title{
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:1.1rem;margin-bottom:6px;
+}
+.tl-body{font-size:.88rem;line-height:1.8;color:var(--ink2);}
+.tl-tips{
+  background:rgba(255,248,200,.8);
+  border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;
+  padding:8px 12px;
+  margin-top:8px;
+  font-size:.83rem;
+  color:#5c3d1e;
+}
+.tl-tips strong{color:var(--red);}
+
+/* ====== 繁花专区 ====== */
+.fanhua-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.fanhua-card{
+  background:linear-gradient(135deg,#1a0a00 0%,#3d1800 100%);
+  color:#e8d5a0;
+  border-radius:12px;
+  padding:20px;
+  border:1px solid #8B6914;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s;
+}
+.fanhua-card::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 20%,rgba(212,160,23,.15),transparent 60%);
+  pointer-events:none;
+}
+.fanhua-card:hover{transform:translateY(-2px)}
+.fanhua-card h3{
+  font-family:"Ma Shan Zheng",serif;
+  font-size:1.1rem;color:#ffd700;margin-bottom:10px;
+}
+.fanhua-card p{font-size:.85rem;line-height:1.8;color:#d4c0a0;}
+.fanhua-card .loc{
+  display:inline-block;font-size:.78rem;
+  background:rgba(212,160,23,.2);
+  border:1px solid rgba(212,160,23,.4);
+  color:#ffd700;
+  border-radius:999px;padding:2px 10px;margin-top:8px;
+}
+
+/* ====== 美食卡片 ====== */
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+.food-card{
+  background:var(--paper2);
+  border-radius:12px;
+  border:2px solid var(--line);
+  padding:16px;
+  text-align:center;
+  transition:transform .2s;
+  position:relative;
+}
+.food-card:hover{transform:scale(1.02)}
+.food-emoji{font-size:2.8rem;margin-bottom:8px;display:block;}
+.food-name{
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:1rem;margin-bottom:6px;
+  color:var(--ink);
+}
+.food-desc{font-size:.82rem;color:var(--ink2);line-height:1.7;}
+.food-where{
+  font-size:.78rem;color:var(--teal);
+  margin-top:8px;font-style:italic;
+}
+.price-tag{
+  position:absolute;top:10px;right:10px;
+  background:var(--red);color:#fff;
+  font-size:.72rem;border-radius:999px;padding:2px 8px;
+}
+
+/* ====== 住宿卡片 ====== */
+.hotel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.hotel-card{
+  background:var(--paper);
+  border-radius:12px;
+  border:2px solid var(--line);
+  padding:20px;
+  position:relative;
+}
+.hotel-stars{color:var(--gold);font-size:1rem;margin-bottom:6px;}
+.hotel-name{
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:1.1rem;margin-bottom:8px;color:var(--navy);
+}
+.hotel-price{
+  color:var(--red);font-size:1rem;font-weight:bold;
+  margin-bottom:10px;
+}
+.hotel-desc{font-size:.85rem;line-height:1.7;color:var(--ink2);}
+.hotel-badge{
+  display:inline-block;font-size:.72rem;
+  background:var(--teal);color:#fff;
+  border-radius:999px;padding:2px 10px;margin-top:8px;margin-right:4px;
+}
+
+/* ====== 购物卡片 ====== */
+.shop-table{width:100%;border-collapse:collapse;font-size:.88rem;}
+.shop-table th{
+  background:var(--navy);color:#fff;
+  padding:10px 14px;text-align:left;
+  font-family:"ZCOOL KuaiLe",serif;
+}
+.shop-table td{
+  padding:10px 14px;border-bottom:1px solid var(--line);
+  color:var(--ink2);
+}
+.shop-table tr:nth-child(even) td{background:rgba(212,184,150,.1)}
+.shop-table tr:hover td{background:rgba(212,184,150,.2)}
+
+/* ====== 准备清单 ====== */
+.checklist{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;}
+.checklist li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.88rem;line-height:1.6;
+  background:var(--paper);
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  padding:8px 12px;
+  cursor:pointer;
+  transition:background .2s;
+}
+.checklist li:hover{background:#fff8e8}
+.checklist li input[type=checkbox]{
+  width:16px;height:16px;
+  flex-shrink:0;margin-top:2px;
+  accent-color:var(--teal);cursor:pointer;
+}
+.checklist li.checked{text-decoration:line-through;color:#a0907a;background:#f5f0e8}
+
+/* ====== 提示框 ====== */
+.tip-box{
+  border-radius:10px;padding:14px 18px;margin:12px 0;
+  font-size:.88rem;line-height:1.8;
+}
+.tip-box.yellow{background:#fff8d0;border-left:4px solid var(--gold);}
+.tip-box.red{background:#fff0ee;border-left:4px solid var(--red);}
+.tip-box.teal{background:#edf7f5;border-left:4px solid var(--teal);}
+.tip-box.blue{background:#eef3ff;border-left:4px solid var(--navy);}
+.tip-box strong{display:block;margin-bottom:4px;font-family:"ZCOOL KuaiLe",serif;font-size:1rem;}
+
+/* ====== 交通信息 ====== */
+.transport-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.train-card{
+  background:linear-gradient(135deg,#0d1a3a 0%,#1a3060 100%);
+  color:#e0eaff;border-radius:12px;padding:20px;
+  border:1px solid rgba(100,140,255,.3);
+  position:relative;overflow:hidden;
+}
+.train-card::after{
+  content:"🚄";position:absolute;right:-10px;bottom:-10px;
+  font-size:5rem;opacity:.08;
+}
+.train-card h3{
+  font-family:"ZCOOL KuaiLe",serif;
+  color:#7fb3ff;font-size:1.1rem;margin-bottom:12px;
+}
+.train-route{
+  display:flex;align-items:center;gap:8px;
+  font-size:1.1rem;margin-bottom:12px;
+  color:#fff;
+}
+.train-route .arrow{color:var(--gold);font-size:1.4rem;}
+.train-info{font-size:.83rem;line-height:1.9;color:#b0c8f0;}
+.train-info span{color:#ffd700;}
+
+/* ====== 折叠面板 ====== */
+.accordion{margin-bottom:12px;}
+.acc-header{
+  background:var(--paper);
+  border:2px solid var(--line);
+  border-radius:10px;
+  padding:14px 18px;
+  cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:"ZCOOL KuaiLe",serif;
+  font-size:1rem;
+  transition:background .2s;
+  user-select:none;
+}
+.acc-header:hover{background:#fff8e8}
+.acc-header.open{
+  border-bottom-left-radius:0;border-bottom-right-radius:0;
+  border-bottom-color:transparent;
+  background:#fff8e8;
+}
+.acc-arrow{transition:transform .3s;font-size:.9rem;}
+.acc-header.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{
+  display:none;
+  background:var(--paper2);
+  border:2px solid var(--line);
+  border-top:none;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  padding:16px 18px;
+  font-size:.88rem;line-height:1.8;color:var(--ink2);
+}
+.acc-body.open{display:block}
+
+/* ====== 地图提示 ====== */
+.map-hint{
+  background:var(--paper);
+  border:2px dashed var(--teal);
+  border-radius:12px;
+  padding:16px 20px;
+  font-size:.88rem;
+  color:var(--ink2);
+  line-height:1.8;
+  margin:16px 0;
+}
+.map-hint strong{color:var(--teal)}
+
+/* ====== 特色亮点标签 ====== */
+.highlight{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--gold),#f0a500);
+  color:#1a0a00;
+  border-radius:4px;
+  padding:1px 8px;
+  font-size:.8rem;
+  font-weight:bold;
+  margin:0 2px;
+  vertical-align:middle;
+}
+.new-badge{
+  background:var(--red);color:#fff;
+  border-radius:4px;padding:1px 6px;font-size:.72rem;margin-left:4px;
+}
+
+/* ====== 页脚 ====== */
+.footer{
+  text-align:center;padding:30px;
+  color:var(--ink2);font-size:.85rem;
+  border-top:2px dashed var(--line);
+  margin-top:40px;
+}
+
+/* ====== 响应式 ====== */
+@media(max-width:600px){
+  .card-grid,.hotel-grid,.transport-cards,.fanhua-grid{grid-template-columns:1fr}
+  .food-grid{grid-template-columns:repeat(2,1fr)}
+  .section-title{font-size:1.3rem}
+}
+
+/* ====== 返回顶部 ====== */
+.back-top{
+  position:fixed;bottom:24px;right:24px;
+  width:46px;height:46px;
+  background:var(--navy);color:#fff;
+  border:none;border-radius:50%;
+  font-size:1.2rem;cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  transition:transform .2s;
+  display:none;
+  z-index:999;
+}
+.back-top:hover{transform:scale(1.1)}
+.back-top.show{display:block}
+
+/* 动画 */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeInUp .5s ease both}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollToSection('cover')">🏮 封面</button>
+    <button class="nav-btn" onclick="scrollToSection('transport')">🚄 交通</button>
+    <button class="nav-btn" onclick="scrollToSection('day1')">📅 Day 1</button>
+    <button class="nav-btn" onclick="scrollToSection('day2')">📅 Day 2</button>
+    <button class="nav-btn" onclick="scrollToSection('fanhua')">🎬 繁花</button>
+    <button class="nav-btn" onclick="scrollToSection('food')">🍜 美食</button>
+    <button class="nav-btn" onclick="scrollToSection('hotel')">🏨 住宿</button>
+    <button class="nav-btn" onclick="scrollToSection('shopping')">🛍️ 购物</button>
+    <button class="nav-btn" onclick="scrollToSection('prep')">📋 准备</button>
+  </div>
+</nav>
+
+<!-- 封面 -->
+<div class="cover" id="cover">
+  <div class="cover-lanterns">🏮🏮🏮</div>
+  <div class="cover-title">繁花上海 · 周末两日</div>
+  <div class="cover-sub">从北京立水桥出发 · 魔都精华打卡</div>
+  <div class="cover-date">✦ 2026年5月16日（周六）— 5月17日（周日）✦</div>
+  <div class="cover-tags">
+    <span class="tag">🎬 繁花取景地</span>
+    <span class="tag">🍜 本帮美食</span>
+    <span class="tag">🏛️ 外滩历史</span>
+    <span class="tag">☕ 武康路漫步</span>
+    <span class="tag">🛍️ 潮流购物</span>
+    <span class="tag">🌉 黄浦江夜景</span>
+  </div>
+  <div class="scroll-hint">▼ 下滑开始探索</div>
+</div>
+
+<div class="main">
+
+<!-- ====== 交通 ====== -->
+<section class="section" id="transport">
+  <div class="section-title">
+    <span class="icon">🚄</span>
+    交通攻略：立水桥 → 上海
+    <span class="badge">重要</span>
+  </div>
+
+  <div class="transport-cards">
+    <div class="train-card">
+      <h3>📍 Step 1：立水桥 → 北京南站</h3>
+      <div class="train-route">
+        <span>立水桥</span>
+        <span class="arrow">→</span>
+        <span>北京南站</span>
+      </div>
+      <div class="train-info">
+        地铁 <span>5号线</span> 立水桥站上车<br>
+        乘坐方向：<span>天通苑北 → 宋家庄</span><br>
+        转 <span>14号线（东段）</span> 在望京南换乘<br>
+        或 <span>4号线</span> 在角门西换乘至北京南站<br><br>
+        全程约 <span>60-80 分钟</span><br>
+        建议早上 <span>7:00 前</span> 出发
+      </div>
+    </div>
+
+    <div class="train-card">
+      <h3>🚅 Step 2：北京南站 → 上海</h3>
+      <div class="train-route">
+        <span>北京南</span>
+        <span class="arrow">→</span>
+        <span>上海虹桥/上海站</span>
+      </div>
+      <div class="train-info">
+        推荐车次：<span>G1、G3、G5、G7</span> 等早班<br>
+        G1 出发时间：<span>09:00</span> → 到达 <span>13:28</span><br>
+        G3 出发时间：<span>09:40</span> → 到达 <span>14:08</span><br>
+        复兴号最快：<span>4小时28分</span><br><br>
+        二等座：<span>¥553</span><br>
+        一等座：<span>¥933</span><br>
+        商务座：<span>¥1748</span>
+      </div>
+    </div>
+
+    <div class="train-card">
+      <h3>🔄 Step 3：上海本地交通</h3>
+      <div class="train-route">
+        <span>上海市内</span>
+        <span class="arrow">→</span>
+        <span>各景点</span>
+      </div>
+      <div class="train-info">
+        推荐方式：<span>地铁 + 步行</span><br>
+        地铁单程：<span>¥3-9</span><br>
+        日票：<span>¥18/日</span>（推荐购买）<br><br>
+        关键路线：<br>
+        虹桥站 <span>→</span> 人民广场 / 南京东路<br>
+        2号线 <span>→</span> 外滩最近<br>
+        9号线 <span>→</span> 田子坊（打浦桥站）<br>
+        1号线 <span>→</span> 武康路（上海图书馆站）
+      </div>
+    </div>
+
+    <div class="train-card">
+      <h3>🏠 Step 4：周日返程</h3>
+      <div class="train-route">
+        <span>上海</span>
+        <span class="arrow">→</span>
+        <span>北京南</span>
+      </div>
+      <div class="train-info">
+        建议 <span>17:00-19:00</span> 的车次<br>
+        G10 出发 <span>17:08</span> → <span>21:37</span><br>
+        G18 出发 <span>18:00</span> → <span>22:28</span><br><br>
+        ⚠️ 提早 <span>1小时</span> 到站<br>
+        12306 App 可直接购票<br>
+        周末热门车次请 <span>提前3天</span> 购票
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box yellow" style="margin-top:16px">
+    <strong>💡 立水桥出发小贴士</strong>
+    立水桥是地铁站，不是高铁站！务必前往 <strong>北京南站</strong> 乘坐高铁。地铁5号线在立水桥上车，经过多次换乘（途经4号线角门西→北京南站），全程约1小时，建议早上7:00出发，留足富余时间。高铁票务必 <strong>提前购买</strong>，周末班次一票难求！
+  </div>
+</section>
+
+<!-- ====== Day 1 ====== -->
+<section class="section" id="day1">
+  <div class="section-title">
+    <span class="icon">📅</span>
+    Day 1（周六）：抵沪 · 外滩 · 繁花黄河路
+    <span class="badge">重头戏</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--gold);background:var(--gold)">●</div>
+      <div class="tl-time">约 13:30</div>
+      <div class="tl-title">🏯 抵达上海 · 办理入住</div>
+      <div class="tl-body">
+        高铁到达上海虹桥/上海站，拖行李前往酒店办理入住（推荐提前与酒店沟通是否可提前存放行李）。选择外滩/人民广场附近的酒店，交通最为便利。
+      </div>
+      <div class="tl-tips"><strong>📌 行李小技巧：</strong>可以把行李存放在酒店前台，轻装上阵先去游玩，傍晚回来正式入住。</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--orange);background:var(--orange)">●</div>
+      <div class="tl-time">14:00 — 16:00</div>
+      <div class="tl-title">🏯 豫园 · 城隍庙（老上海精华）</div>
+      <div class="tl-body">
+        豫园是上海最著名的江南古典园林，始建于明嘉靖年间（距今约450年）。穿过九曲桥，看玉玲珑、三穗堂、仰山堂，感受浓浓明清园林气息。<br><br>
+        周边城隍庙商业区是上海小吃天堂：<br>
+        • <strong>南翔馒头店</strong>（豫园路85号）——蟹粉小笼包的始祖，皮薄汤鲜<br>
+        • <strong>沈大成</strong>——双酿团、条头糕，老上海味道<br>
+        • <strong>绿波廊</strong>——百年传统点心名店<br>
+      </div>
+      <div class="tl-tips">
+        <strong>📌 门票：</strong>豫园旺季 ¥40，淡季 ¥30。城隍庙商业街免费进入，但人非常多，小心扒手！<br>
+        <strong>💡 拍照：</strong>九曲桥上的"S形桥 + 湖心亭"是必拍角度，早上光线最佳。
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--navy);background:var(--navy)">●</div>
+      <div class="tl-time">16:00 — 18:00</div>
+      <div class="tl-title">🌊 外滩 · 万国建筑群（黄金时段）</div>
+      <div class="tl-body">
+        外滩全长约1.5公里，52幢风格迥异的欧式建筑矗立于黄浦江畔，素称"万国建筑博览群"。傍晚时分光线柔和，是拍照的最佳时机。<br><br>
+        <strong>必看地标：</strong><br>
+        • <strong>外滩27号（中山东一路27号）</strong>——《繁花》中汪小姐工作的外贸大楼原型！现为罗斯福公馆，6楼久事美术馆，顶楼酒吧可俯瞰两岸夜景<br>
+        • <strong>和平饭店（中山东一路20号）</strong>——1929年建成，"繁花英国套房"16888元/晚，大堂爵士酒吧每晚8点后演出<br>
+        • <strong>外白渡桥</strong>——《繁花》中宝总跳水的场景地，百年钢铁桥梁，浪漫感十足<br>
+        • <strong>海关大楼</strong>——整点会响起的大钟声，百年如一<br>
+      </div>
+      <div class="tl-tips">
+        <strong>🎷 和平饭店爵士酒吧：</strong>每晚 20:00 开演，平均年龄80岁的老乐师演奏至深夜，¥120起/位（含一杯饮品），是上海最值得体验的百年文化之一！<br>
+        <strong>📸 拍照机位：</strong>外滩观景台正对陆家嘴三件套（东方明珠+环球金融中心+上海中心），傍晚暮光最美。
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--red);background:var(--red)">●</div>
+      <div class="tl-time">18:30 — 21:00</div>
+      <div class="tl-title">🍽️ 黄河路晚餐 · 繁花核心打卡地</div>
+      <div class="tl-body">
+        全长仅755米的黄河路，是《繁花》全剧最核心的场景地，也是上海最传奇的美食街之一。1990年代这里汇聚了上海最顶级的本帮菜餐厅，如今依然是打卡和美食的双重胜地。<br><br>
+        <strong>必去：苔圣园酒家（至真园原型）</strong>——始于1993年，《繁花》"至真园"的现实原型。宝总三次敲门的地方！本帮菜招牌：红烧肉、蟹粉狮子头、响油鳝糊<br><br>
+        <strong>国际饭店蝴蝶酥</strong>（北京西路170号，黄河路入口）——上海最著名伴手礼，热播期间排队数小时，建议17点前去排队<br>
+      </div>
+      <div class="tl-tips">
+        <strong>⚠️ 重要提醒：</strong>苔圣园酒家（至真园原型）日常用餐需 <strong>提前至少一周预订</strong>！可在大众点评、美团上预约。备选：同在黄河路的其他本帮菜馆同样出色。<br>
+        <strong>🌃 夜游：</strong>餐后步行回外滩欣赏夜景，陆家嘴灯光璀璨，是拍摄上海最美夜景的绝佳时机。
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--teal);background:var(--teal)">●</div>
+      <div class="tl-time">21:00 之后</div>
+      <div class="tl-title">🌙 外滩夜景 · 和平饭店爵士酒吧（可选）</div>
+      <div class="tl-body">
+        夜晚的外滩灯光全开，陆家嘴三件套璀璨夺目，是白天看不到的浪漫。建议在江边漫步15-20分钟，感受"夜上海"的魅力。<br><br>
+        若有预算，强烈推荐去<strong>和平饭店爵士酒吧</strong>坐一坐，感受百年老上海的爵士时光，这是《繁花》里宝总最爱的氛围。
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== Day 2 ====== -->
+<section class="section" id="day2">
+  <div class="section-title">
+    <span class="icon">📅</span>
+    Day 2（周日）：法租界 · 田子坊 · 启程归家
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--gold);background:var(--gold)">●</div>
+      <div class="tl-time">08:00 — 09:30</div>
+      <div class="tl-title">☀️ 酒店早餐 · 悠闲准备</div>
+      <div class="tl-body">
+        享用酒店早餐，或去附近老字号吃一碗地道早餐：<br>
+        • <strong>大壶春生煎</strong>（云南南路89号）——最传统的上海生煎，底脆皮薄，¥3/个<br>
+        • <strong>阿娘黄鱼面</strong>（复兴东路14号）——黄鱼骨熬制的浓汤面，老上海的早晨味道<br>
+        • <strong>光明邨大酒家</strong>（淮海中路588号）——蝴蝶酥、鲜肉月饼，门口常有长队，值得等
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--purple);background:var(--purple)">●</div>
+      <div class="tl-time">09:30 — 12:00</div>
+      <div class="tl-title">🌳 武康路 + 安福路 CityWalk（法租界精华）</div>
+      <div class="tl-body">
+        被誉为"上海文青宇宙中心"的武康路-安福路街区，是上海最具欧洲风情的历史街道。梧桐树下漫步，百年老宅与潮流小店交织，随手一拍都是大片。<br><br>
+        <strong>必打卡地标：</strong><br>
+        • <strong>武康大楼（诺曼底大厦）</strong>——1924年建成，三角形船头造型，上海最具标志性的历史建筑之一，也是《繁花》中多次出现的背景<br>
+        • <strong>武康庭（武康路378号）</strong>——% Arabica 咖啡（京都网红来沪），西班牙拿铁¥38，户外庭院氛围感满分<br>
+        • <strong>LE LABO 手工香水（武康路135号）</strong>——内地首家街边店，融合中式集雅美学<br>
+        • <strong>BEAST 野兽派（安福路）</strong>——情侣必逛，干花艺术品牌<br>
+        • <strong>多抓鱼循环商店</strong>——二手书 + 二手衣物，文青圣地<br>
+        • <strong>三顿半（安福路）</strong>——国民咖啡品牌线下店<br>
+        • <strong>上海话剧艺术中心（安福路288号）</strong>——可查当期演出，《宋香雅事》展览2026年3月起开放
+      </div>
+      <div class="tl-tips">
+        <strong>📸 拍照圣地：</strong>武康大楼正面（武康路-淮海中路交叉口），早上9-10点光线最佳，下午逆光。武康路393号黄兴故居旁有武康康玩偶可合影！<br>
+        <strong>🗺️ 推荐路线：</strong>武康路（从淮海中路口出发）→ 复兴西路 → 安福路 → 乌鲁木齐中路，全程约3公里，步行约1.5小时
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--pink);background:var(--pink)">●</div>
+      <div class="tl-time">12:00 — 14:00</div>
+      <div class="tl-title">🎨 田子坊午餐 · 弄堂艺术（法租界续）</div>
+      <div class="tl-body">
+        田子坊是法租界时代旧弄堂改建的创意街区，石库门老建筑里藏着数百家艺术工作室、咖啡馆和特色小店。穿旗袍来拍照，随手出片！<br><br>
+        <strong>午餐推荐（田子坊周边）：</strong><br>
+        • <strong>新吉士（天钥桥路176号）</strong>——沪上最受欢迎的本帮私房菜，红烧肉、熏鱼、草头圈子绝了<br>
+        • <strong>Egg（打浦路附近）</strong>——外国人喜欢的创意早午餐<br>
+        • <strong>田子坊内小吃摊</strong>——关东煮、鱼蛋、台湾卤肉饭，边走边吃<br>
+        <br>
+        <strong>田子坊必逛：</strong>小红书风格文创店、上海特色明信片、手工旗袍定制（价格¥200-800）
+      </div>
+      <div class="tl-tips"><strong>🚇 交通：</strong>地铁9号线「打浦桥站」1号口出来步行约300米即到。</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--green);background:var(--green)">●</div>
+      <div class="tl-time">14:00 — 15:30</div>
+      <div class="tl-title">🏙️ 新天地 · 石库门风情 + 下午茶</div>
+      <div class="tl-body">
+        由石库门旧区改建的新天地，南里北里各有特色。白天来此吃一顿精致下午茶，感受新旧交融的"海派时髦"。<br><br>
+        <strong>推荐打卡：</strong><br>
+        • <strong>星巴克臻选烘焙工坊（南京西路789号）</strong>——全球最大星巴克，2000平方米四层空间，铜制烘焙设备超震撼！¥60-120<br>
+        • <strong>新天地石库门博物馆</strong>——免费参观，了解上海石库门建筑历史<br>
+        • <strong>WEWORK文化广场</strong>——各类创意市集，周末经常有活动
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--navy);background:var(--navy)">●</div>
+      <div class="tl-time">15:30 — 17:00</div>
+      <div class="tl-title">🛍️ 南京路购物 · 纪念品采购</div>
+      <div class="tl-body">
+        南京路步行街是采购伴手礼的最后机会！<br><br>
+        • <strong>第一食品商店</strong>（南京东路720号）——蝴蝶酥、杏仁排、鲜肉月饼，价格透明，比景区便宜<br>
+        • <strong>沈大成</strong>——双酿团、苔条饼、条头糕，老字号糕点<br>
+        • <strong>Pop Mart 旗舰店</strong>（世茂广场）——LABUBU等限定上海款盲盒<br>
+        • <strong>上海故事</strong>——旗袍、丝巾（注意：溢价较高，理性消费）
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="color:var(--red);background:var(--red)">●</div>
+      <div class="tl-time">17:00 — 18:00</div>
+      <div class="tl-title">🚅 收拾行李 · 前往车站</div>
+      <div class="tl-body">
+        回酒店取行李，前往上海虹桥/上海站乘坐返程高铁。建议预留至少<strong>1小时</strong>在车站，上海虹桥站非常大，进站需要时间。<br><br>
+        <strong>周日傍晚推荐车次：</strong>G10（17:08）、G18（18:00）、G20（18:30）
+      </div>
+      <div class="tl-tips"><strong>⚠️ 注意：</strong>周日下午是返京高峰，务必提前至少3-4天购票！到站后预留充足安检时间。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== 繁花专区 ====== -->
+<section class="section" id="fanhua">
+  <div class="section-title">
+    <span class="icon">🎬</span>
+    《繁花》取景地完全打卡指南
+    <span class="badge">剧迷必看</span>
+  </div>
+
+  <div class="tip-box teal" style="margin-bottom:20px">
+    <strong>🎬 关于《繁花》</strong>
+    王家卫执导的电视剧《繁花》以1990年代上海为背景，以黄河路餐饮业为主轴，讲述了阿宝（胡歌饰）、汪小姐（唐嫣饰）等人在改革开放浪潮下的商海沉浮与儿女情长。剧中大量取景于上海真实地标，以下是完整打卡地图。
+  </div>
+
+  <div class="fanhua-grid">
+
+    <div class="fanhua-card">
+      <div class="tape"></div>
+      <h3>🏮 黄河路（剧中核心场景）</h3>
+      <p>全长755米，是《繁花》90%剧情发生地。剧中几乎所有重要的商业谈判、情感纠葛都在这条街上演。如今已成上海最热门的网红打卡街道。</p>
+      <span class="loc">📍 黄浦区黄河路（近人民广场）</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape pink"></div>
+      <h3>🍽️ 苔圣园酒家（"至真园"原型）</h3>
+      <p>宝总经常去吃饭、谈生意的"至真园"，现实原型是苔圣园酒家，创于1993年。本帮菜：红烧肉、响油鳝糊、蟹粉狮子头。热播后每天爆满，需提前一周以上预订。</p>
+      <span class="loc">📍 黄河路（具体门牌号见大众点评）</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape blue"></div>
+      <h3>🏢 外滩27号（汪小姐的公司）</h3>
+      <p>剧中汪小姐工作的"外贸大楼"，现为罗斯福公馆。6楼久事美术馆、顶楼酒吧可俯瞰外滩全景。与和平饭店相距不足100米。</p>
+      <span class="loc">📍 中山东一路27号</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape green"></div>
+      <h3>🏨 和平饭店（宝总住所）</h3>
+      <p>胡歌饰演的宝总常住的酒店。"英国繁花套房"已从¥15930涨至¥16888/晚。大堂爵士酒吧每晚8点后，老年乐队演奏百年经典爵士，是上海最独特的文化体验。</p>
+      <span class="loc">📍 中山东一路20号（南京东路口）</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape"></div>
+      <h3>🌉 外白渡桥（宝总跳水处）</h3>
+      <p>百年铁桥，1907年建成，剧中宝总跳桥救人的场景地。桥旁就是上海大厦（原"百老汇大厦"），两者合影是《繁花》最经典的打卡角度之一。</p>
+      <span class="loc">📍 黄浦江入苏州河口</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape pink"></div>
+      <h3>🎬 上海影视乐园黄河路（实体拍摄场地）</h3>
+      <p>《繁花》剧组在松江车墩影视基地还原了黄河路外景地，包括至真园、金美林等门头霓虹灯，30余个门面，700余根霓虹灯管。2024年7月27日起开放夜场参观！</p>
+      <span class="loc">📍 松江区车墩影视基地（需提前网上预约）</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape blue"></div>
+      <h3>🏪 沪联商厦（永安百货取景地）</h3>
+      <p>剧中"沪联商厦"的原型是南京路上的永安百货，1920年代建成的老百货，外立面至今保留了浓厚的民国商业建筑风格。</p>
+      <span class="loc">📍 南京东路635号</span>
+    </div>
+
+    <div class="fanhua-card">
+      <div class="tape green"></div>
+      <h3>🌸 武康路（繁花氛围感圣地）</h3>
+      <p>《繁花》部分场景取景于此，法租界梧桐道路与剧中上海旧时光氛围高度契合。武康大楼是上海殖民地时代建筑的巅峰之作，无论剧迷还是摄影爱好者都不能错过。</p>
+      <span class="loc">📍 武康路（近淮海中路口）</span>
+    </div>
+
+  </div>
+
+  <div class="tip-box red" style="margin-top:20px">
+    <strong>⭐ 繁花打卡最强路线建议（半日）</strong>
+    立水桥出发 → 上海站 → 地铁2号线「南京东路站」→ <strong>外滩27号</strong>（汪小姐公司）→ 沿外滩北行 → <strong>和平饭店</strong>打卡 → <strong>外白渡桥</strong> → 步行至外滩观景台 → 叫车10分钟 → <strong>黄河路苔圣园</strong>吃晚饭。建议下午3-4点到外滩，傍晚光线最美！
+  </div>
+</section>
+
+<!-- ====== 美食 ====== -->
+<section class="section" id="food">
+  <div class="section-title">
+    <span class="icon">🍜</span>
+    上海必吃美食地图
+  </div>
+
+  <div class="food-grid">
+
+    <div class="food-card">
+      <div class="tape"></div>
+      <span class="food-emoji">🥟</span>
+      <div class="food-name">生煎包</div>
+      <div class="food-desc">底部焦香酥脆，皮薄汤鲜，一口下去肉香四溢，芝麻葱花点缀，是上海最有"街头灵魂"的早餐小吃</div>
+      <div class="food-where">🏠 小杨生煎（黄河路97号）/ 大壶春（云南南路89号）</div>
+      <div class="price-tag">¥3/个起</div>
+    </div>
+
+    <div class="food-card">
+      <div class="tape pink"></div>
+      <span class="food-emoji">🫗</span>
+      <div class="food-name">蟹粉小笼包</div>
+      <div class="food-desc">18个褶子的精致薄皮，一口汤汁盈口，蟹粉加持后鲜甜度直接拉满，吃前别忘了先咬一小口放汤</div>
+      <div class="food-where">🏠 南翔馒头店（城隍庙豫园路85号）/ 莱莱小笼</div>
+      <div class="price-tag">¥68/笼起</div>
+    </div>
+
+    <div class="food-card">
+      <div class="tape blue"></div>
+      <span class="food-emoji">🥩</span>
+      <div class="food-name">红烧肉</div>
+      <div class="food-desc">浓油赤酱是本帮菜灵魂。五花肉慢炖2-3小时，色泽红亮，肥而不腻，入口即化，甜中带咸</div>
+      <div class="food-where">🏠 苔圣园酒家（黄河路）/ 老正兴菜馆（云南南路）</div>
+      <div class="price-tag">¥68起</div>
+    </div>
+
+    <div class="food-card">
+      <div class="tape green"></div>
+      <span class="food-emoji">🦀</span>
+      <div class="food-name">蟹粉狮子头</div>
+      <div class="food-desc">猪肉与蟹粉完美融合，肉丸细腻鲜嫩，汤汁清鲜，是本帮菜里精致与豪迈并存的代表作</div>
+      <div class="food-where">🏠 新吉士（天钥桥路176号）/ 白家私房菜</div>
+      <div class="price-tag">¥88起</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🐟</span>
+      <div class="food-name">熏鱼</div>
+      <div class="food-desc">上海人过年必做的传统菜，草鱼段油炸后浸入酱料，外酥里嫩，甜香浓郁，冷食热食皆宜</div>
+      <div class="food-where">🏠 福1015（愚园路1015号）/ 光明邨大酒家</div>
+      <div class="price-tag">¥45起</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🍡</span>
+      <div class="food-name">蝴蝶酥</div>
+      <div class="food-desc">上海最经典伴手礼！酥层分明，奶香浓郁，烤得金黄酥脆，甜而不腻，国际饭店版最为正宗</div>
+      <div class="food-where">🏠 国际饭店（北京西路170号）/ 第一食品商店</div>
+      <div class="price-tag">¥5/个</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🍜</span>
+      <div class="food-name">响油鳝糊</div>
+      <div class="food-desc">《繁花》中出现多次的上海名菜。鳝丝炒制后浇上滚烫热油，发出"嗤嗤"声响，姜丝葱油香气扑鼻</div>
+      <div class="food-where">🏠 苔圣园酒家 / 老正兴菜馆 / 德兴馆</div>
+      <div class="price-tag">¥58起</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">☕</span>
+      <div class="food-name">西班牙拿铁</div>
+      <div class="food-desc">% Arabica 招牌咖啡，源自京都，在武康庭喝一杯，梧桐树荫下感受文艺上海的午后时光</div>
+      <div class="food-where">🏠 % Arabica（武康庭 武康路378号）</div>
+      <div class="price-tag">¥38</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🥐</span>
+      <div class="food-name">星巴克烘焙工坊</div>
+      <div class="food-desc">全球最大星巴克（2000㎡），豪华铜制烘焙设备展示，限定上海款酒桶陈年咖啡，网红必打卡</div>
+      <div class="food-where">🏠 南京西路789号（近静安寺）</div>
+      <div class="price-tag">¥60-120</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🍚</span>
+      <div class="food-name">秃黄油捞饭</div>
+      <div class="food-desc">纯蟹黄蟹膏炒制，浓厚金黄，浇在米饭上，膏黄交融，"第一口是惊艳，第二口是满足"</div>
+      <div class="food-where">🏠 福1015（愚园路1015号花园洋房）</div>
+      <div class="price-tag">¥168起</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🥮</span>
+      <div class="food-name">双酿团</div>
+      <div class="food-desc">上海最传统的糯米点心，外裹椰蓉，内包芝麻和豆沙双馅，软糯香甜，价格亲民</div>
+      <div class="food-where">🏠 沈大成（南京东路636号，百年老字号）</div>
+      <div class="price-tag">¥5/个</div>
+    </div>
+
+    <div class="food-card">
+      <span class="food-emoji">🎰</span>
+      <div class="food-name">Taste of China·味</div>
+      <div class="food-desc">2026新开！熊猫主厨"程饱饱"带你穿越中国七大风味，科技+美食+汉服妆造+全景投影，超沉浸体验</div>
+      <div class="food-where">🏠 黄浦区河南中路270号B1（近外滩）</div>
+      <div class="price-tag">¥268/位</div>
+    </div>
+
+  </div>
+
+  <div class="tip-box yellow" style="margin-top:16px">
+    <strong>🌟 美食避坑指南</strong>
+    1. 外滩"上海故事"旁边的小吃摊溢价严重，建议绕道而行<br>
+    2. 南翔馒头店城隍庙分店排队长，可前往淮海路分店<br>
+    3. 苔圣园（至真园原型）务必提前预约，可在大众点评/美团操作<br>
+    4. 买蝴蝶酥去第一食品商店比国际饭店门口队伍短且价格差不多
+  </div>
+</section>
+
+<!-- ====== 住宿 ====== -->
+<section class="section" id="hotel">
+  <div class="section-title">
+    <span class="icon">🏨</span>
+    住宿推荐：外滩/人民广场区域
+  </div>
+
+  <div class="hotel-grid">
+
+    <div class="hotel-card">
+      <div class="tape"></div>
+      <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+      <div class="hotel-name">和平饭店</div>
+      <div class="hotel-price">¥2500-16888/晚</div>
+      <div class="hotel-desc">1929年建成的百年传奇酒店，"英国繁花套房"是《繁花》同款体验。爵士酒吧是额外亮点。性价比低但仪式感极高。</div>
+      <span class="hotel-badge">繁花同款</span>
+      <span class="hotel-badge">外滩核心</span>
+    </div>
+
+    <div class="hotel-card">
+      <div class="tape pink"></div>
+      <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+      <div class="hotel-name">外滩华尔道夫</div>
+      <div class="hotel-price">¥2800-5000/晚</div>
+      <div class="hotel-desc">前身是百年上海总会大楼，走出来3分钟到黄浦江观景台，晚上步行拍夜景。顶级服务，历史氛围与现代奢华完美结合。</div>
+      <span class="hotel-badge">超豪华</span>
+      <span class="hotel-badge">绝佳位置</span>
+    </div>
+
+    <div class="hotel-card">
+      <div class="tape blue"></div>
+      <div class="hotel-stars">⭐⭐⭐⭐</div>
+      <div class="hotel-name">唯庭酒店（外滩商圈）</div>
+      <div class="hotel-price">¥400-800/晚</div>
+      <div class="hotel-desc">外滩商圈位置，部分房型有江景，性价比极高。现代轻奢风格，服务热情周到，适合预算有限但想住好位置的旅行者。</div>
+      <span class="hotel-badge">高性价比</span>
+      <span class="hotel-badge">江景可选</span>
+    </div>
+
+    <div class="hotel-card">
+      <div class="tape green"></div>
+      <div class="hotel-stars">⭐⭐⭐⭐</div>
+      <div class="hotel-name">粤海酒店（虹口区）</div>
+      <div class="hotel-price">¥350-600/晚</div>
+      <div class="hotel-desc">近4号线临平路站，坐两站到外滩。带游泳池和健身房，餐厅中餐出色。在上海高价区里算是难得的实惠好住。</div>
+      <span class="hotel-badge">有泳池</span>
+      <span class="hotel-badge">交通便利</span>
+    </div>
+
+    <div class="hotel-card">
+      <div class="tape"></div>
+      <div class="hotel-stars">⭐⭐⭐</div>
+      <div class="hotel-name">青年旅舍（南京路/外滩区域）</div>
+      <div class="hotel-price">¥80-200/晚（床位）</div>
+      <div class="hotel-desc">多家连锁青旅分布在南京路和人民广场附近，设施干净，WiFi良好，早餐价格实惠，适合独自旅行者或背包客。</div>
+      <span class="hotel-badge">最省钱</span>
+      <span class="hotel-badge">适合背包客</span>
+    </div>
+
+    <div class="hotel-card">
+      <div class="tape pink"></div>
+      <div class="hotel-stars">⭐⭐⭐⭐</div>
+      <div class="hotel-name">浦江饭店</div>
+      <div class="hotel-price">¥300-500/晚</div>
+      <div class="hotel-desc">中国第一家西式旅馆（1846年建），历史超过和平饭店，近苏州河，步行可达外滩和南京路。建筑本身就是打卡地！</div>
+      <span class="hotel-badge">最古老</span>
+      <span class="hotel-badge">历史感</span>
+    </div>
+
+  </div>
+
+  <div class="tip-box blue" style="margin-top:16px">
+    <strong>📍 住宿区域选择建议</strong>
+    <strong>首选外滩/黄浦区</strong>：步行可达所有繁花取景地，夜景绝佳，是最省时的选择<br>
+    <strong>次选静安寺</strong>：靠近武康路、南京西路购物，地铁2号线直达外滩<br>
+    <strong>实用建议</strong>：在携程、Booking、美团上提前3-7天预订，周末溢价明显，平日提前订更划算
+  </div>
+</section>
+
+<!-- ====== 购物 ====== -->
+<section class="section" id="shopping">
+  <div class="section-title">
+    <span class="icon">🛍️</span>
+    上海购物指南
+  </div>
+
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      🏮 南京路步行街 — 大众购物天堂
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <p>亚洲最长步行街之一，从外滩一直延伸至静安寺，汇集国内外品牌和老字号。</p>
+      <ul style="margin:10px 0 0 18px">
+        <li><strong>第一食品商店</strong>（南京东路720号）——蝴蝶酥¥5/个，杏仁排¥40/斤，最平价的上海伴手礼</li>
+        <li><strong>沈大成</strong>（南京东路636号）——双酿团、苔条饼，百年老字号糕点</li>
+        <li><strong>Pop Mart 旗舰店</strong>（世茂广场，近南京路）——约800㎡两层旗舰店，限定上海款LABUBU、MOLLY</li>
+        <li><strong>恒隆广场/梅龙镇广场</strong>——奢侈品汇聚，LV/Chanel/Gucci</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      👗 淮海路 + TX淮海 — 时尚潮流先锋
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <p>日平均客流量100万人次的上海第二大商业街，高端时尚品牌聚集。</p>
+      <ul style="margin:10px 0 0 18px">
+        <li><strong>TX淮海·年轻力中心</strong>——国潮品牌+国际买手，2.4万㎡潮流空间，没有奢侈品只有创意</li>
+        <li><strong>iapm 环贸广场</strong>——高端品牌+夜间营业，周末人气爆棚</li>
+        <li><strong>K11艺术购物中心</strong>——定期艺术展览，购物同时看展</li>
+        <li><strong>光明邨大酒家</strong>——鲜肉月饼、蝴蝶酥，上海本地人最爱，需排队</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      🌿 武康路 / 安福路 — 独立小店淘宝
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <ul style="margin:10px 0 0 18px">
+        <li><strong>BEAST 野兽派</strong>——干花装置艺术品，送礼首选，定价¥100-500</li>
+        <li><strong>多抓鱼循环商店</strong>——二手书+二手衣物，文青圣地，平均便宜40%</li>
+        <li><strong>三顿半</strong>——国民精品速溶咖啡线下店，有限定口味</li>
+        <li><strong>观夏</strong>——中式香氛品牌，东方美学，香氛蜡烛¥350起</li>
+        <li><strong>LE LABO（武康路135号）</strong>——内地首家街边店，纽约手工香水与中式古瓷融合</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      🎨 田子坊 — 文创纪念品
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <ul style="margin:10px 0 0 18px">
+        <li>上海特色明信片和版画（¥5-30）</li>
+        <li>手工旗袍定制（¥200-800，需预约）</li>
+        <li>老上海风格装饰画和海报（¥20-100）</li>
+        <li>独立设计师首饰和工艺品</li>
+        <li>上海风格冰箱贴和文创产品</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-family:'ZCOOL KuaiLe',serif;margin:20px 0 12px;font-size:1.1rem">🎁 伴手礼精选清单</h3>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th>商品</th>
+        <th>推荐购买地</th>
+        <th>价格参考</th>
+        <th>特点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>蝴蝶酥</td>
+        <td>第一食品商店</td>
+        <td>¥5/个</td>
+        <td>上海最经典伴手礼，酥脆奶香</td>
+      </tr>
+      <tr>
+        <td>鲜肉月饼</td>
+        <td>光明邨大酒家</td>
+        <td>¥8/个</td>
+        <td>现烤现卖，酥皮鲜肉，需排队</td>
+      </tr>
+      <tr>
+        <td>LABUBU限定款</td>
+        <td>Pop Mart 世茂广场</td>
+        <td>¥99/个盲盒起</td>
+        <td>上海限定款，全球热销IP</td>
+      </tr>
+      <tr>
+        <td>干花装置</td>
+        <td>BEAST野兽派</td>
+        <td>¥100-500</td>
+        <td>精致礼品，文青最爱</td>
+      </tr>
+      <tr>
+        <td>中式香氛</td>
+        <td>观夏（安福路）</td>
+        <td>¥350起</td>
+        <td>东方美学香氛，高端伴手礼</td>
+      </tr>
+      <tr>
+        <td>三顿半咖啡</td>
+        <td>三顿半（安福路）</td>
+        <td>¥69/6颗</td>
+        <td>限定口味，精品速溶咖啡</td>
+      </tr>
+      <tr>
+        <td>苔条饼/杏仁排</td>
+        <td>第一食品/沈大成</td>
+        <td>¥30-60/斤</td>
+        <td>老上海糕点，送长辈最合适</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ====== 准备清单 ====== -->
+<section class="section" id="prep">
+  <div class="section-title">
+    <span class="icon">📋</span>
+    出发前准备清单
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">📱</span>
+        必装App & 账号
+      </div>
+      <ul>
+        <li>12306（高铁购票，提前3-5天）</li>
+        <li>大众点评（餐厅预订、查评价）</li>
+        <li>美团（外卖、票务、门票）</li>
+        <li>高德地图 / 百度地图（导航）</li>
+        <li>上海地铁App（查线路/充值）</li>
+        <li>携程 / Booking（酒店比价）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">🎟️</span>
+        提前预订事项
+      </div>
+      <ul>
+        <li>✅ 高铁票（最晚出发前3天购买！）</li>
+        <li>✅ 酒店（提前7天订价格最优）</li>
+        <li>✅ 苔圣园酒家（至真园原型）晚餐</li>
+        <li>✅ 和平饭店爵士酒吧座位（可选）</li>
+        <li>✅ 上海影视乐园（松江）参观预约</li>
+        <li>✅ 豫园门票（可当天购买，旺季提前）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">👘</span>
+        穿搭 & 物品清单
+      </div>
+      <ul>
+        <li>🌂 折叠雨伞（上海五月梅雨季！）</li>
+        <li>👟 舒适步行鞋（大量步行）</li>
+        <li>🧴 防晒霜SPF50+（外滩户外强晒）</li>
+        <li>📸 充电宝（长时间拍照）</li>
+        <li>👗 文艺服装（武康路/田子坊拍照）</li>
+        <li>🗂️ 身份证（购票/入住/进站必备）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">💰</span>
+        预算参考（两人·两日）
+      </div>
+      <ul>
+        <li>🚄 高铁往返：¥1100-1900（二等座）</li>
+        <li>🏨 酒店2晚：¥700-3000</li>
+        <li>🍜 餐饮2天：¥400-800</li>
+        <li>🎟️ 门票景点：¥200-400</li>
+        <li>🚇 市内交通：¥80-150</li>
+        <li>🛍️ 购物伴手礼：¥200-1000+</li>
+        <li style="font-weight:bold;color:var(--red)">合计约：¥2700-7000+</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-family:'ZCOOL KuaiLe',serif;margin:24px 0 12px;font-size:1.1rem">✅ 出发前逐项确认</h3>
+  <ul class="checklist" id="checkList">
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 高铁票已购（往返）</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 酒店已预订</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 苔圣园晚餐已预约</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 身份证已确认携带</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 手机充电宝已充满</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 雨伞已放入行李</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 上海地铁App已下载</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 大众点评已安装</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 防晒霜已备好</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 出行服装已确认（含拍照用）</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 现金/移动支付已确认</li>
+    <li onclick="toggleCheck(this)"><input type="checkbox"> 上海影视乐园夜场已预约（可选）</li>
+  </ul>
+
+  <div class="tip-box teal" style="margin-top:20px">
+    <strong>🌧️ 五月上海天气提醒</strong>
+    5月是上海的初梅雨期，气温20-28°C，湿度较高，突发降雨概率大。建议随身携带轻便雨具，外滩江风较大，傍晚可带薄外套。五月阳光充足，做好防晒！
+  </div>
+</section>
+
+</div><!-- /main -->
+
+<div class="footer">
+  🏮 繁花上海 · 周末两日手账 · 2026 ·<br>
+  数据参考：携程、大众点评、小红书、澎湃新闻、上海旅游官网<br>
+  <small style="color:#a09070">出行信息请以官方最新公告为准，祝旅途愉快！</small>
+</div>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// 导航激活
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// 折叠面板
+function toggleAcc(header){
+  const body=header.nextElementSibling;
+  const isOpen=header.classList.contains('open');
+  document.querySelectorAll('.acc-header.open').forEach(h=>{
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){header.classList.add('open');body.classList.add('open');}
+}
+
+// 清单点击
+function toggleCheck(li){
+  const cb=li.querySelector('input[type=checkbox]');
+  cb.checked=!cb.checked;
+  li.classList.toggle('checked',cb.checked);
+}
+
+// 导航高亮
+const sections=['cover','transport','day1','day2','fanhua','food','hotel','shopping','prep'];
+const navBtns=document.querySelectorAll('.nav-btn');
+function updateNav(){
+  let cur='cover';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-80) cur=id;
+  });
+  navBtns.forEach((btn,i)=>{
+    btn.classList.toggle('active',sections[i]===cur);
+  });
+}
+
+// 返回顶部按钮
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{
+  backTop.classList.toggle('show',window.scrollY>400);
+  updateNav();
+},{passive:true});
+
+// 入场动画
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('fade-in')});
+},{threshold:.1});
+document.querySelectorAll('.card,.fanhua-card,.food-card,.hotel-card,.train-card,.tl-item').forEach(el=>{
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

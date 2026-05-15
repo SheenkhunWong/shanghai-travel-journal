@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上海 · 佬友经验帖 · 来自 linux.do</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ecd9;
+  --paper-2:#efe6c8;
+  --ink:#3a2e1f;
+  --ink-soft:#6b5a44;
+  --line:#c9b88c;
+  --c1:#e85c8a;
+  --c1-soft:#fde2ec;
+  --c2:#3d6a8c;
+  --c2-soft:#d7e5f0;
+  --c3:#7a8b3a;
+  --c3-soft:#e6ecc8;
+  --c4:#b87c2a;
+  --c4-soft:#f5e4c0;
+  --tape:#fff3a8cc;
+  --tape2:#ffb6a8cc;
+  --tape3:#b8e1ffcc;
+  --tape4:#c8f0c0cc;
+  --stamp:#c63b2f;
+  --warn:#c0392b;
+  --warn-soft:#fdecea;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Patrick Hand","ZCOOL XiaoWei",ui-sans-serif,system-ui;
+  background:
+    radial-gradient(1200px 800px at 20% 10%, #e9dfc4 0%, transparent 60%),
+    radial-gradient(900px 700px at 80% 90%, #ead9b8 0%, transparent 60%),
+    var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+  padding:24px 12px 80px;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 25% 35%, #00000008 1px, transparent 1.5px),
+    radial-gradient(circle at 75% 65%, #00000010 1px, transparent 1.5px),
+    radial-gradient(circle at 50% 80%, #00000008 1px, transparent 1.5px);
+  background-size:7px 7px,11px 11px,13px 13px;
+  mix-blend-mode:multiply;
+  opacity:.45;
+  z-index:0;
+}
+.wrap{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+
+/* 纸卡 */
+.page{
+  background:linear-gradient(180deg, #fffaee, #f5ecd2);
+  border:1px solid #d8c79a;
+  border-radius:14px;
+  box-shadow:0 1px 0 #fff8 inset,0 18px 30px -20px #00000033,0 2px 4px #00000018;
+  padding:36px 28px 28px;
+  margin:28px 0;
+  position:relative;
+}
+.page::before{
+  content:"";
+  position:absolute;inset:60px 24px 24px;
+  background-image:repeating-linear-gradient(180deg, transparent 0 31px, #b9a26b22 31px 32px);
+  pointer-events:none;
+  border-radius:6px;
+}
+
+/* 胶带 */
+.tape{
+  position:absolute;
+  width:130px;height:26px;
+  background:var(--tape);
+  box-shadow:0 4px 8px #0002;
+  transform:rotate(-4deg);
+  z-index:2;opacity:.95;
+  border-left:1px dashed #00000022;
+  border-right:1px dashed #00000022;
+}
+.tape.t1{top:-12px;left:30px;background:var(--tape2);transform:rotate(-6deg)}
+.tape.t2{top:-12px;right:30px;background:var(--tape3);transform:rotate(5deg)}
+.tape.t3{bottom:-10px;left:50%;transform:translateX(-50%) rotate(2deg);background:var(--tape4)}
+
+/* 印章 */
+.stamp{
+  position:absolute;top:20px;right:28px;
+  border:3px solid var(--stamp);
+  color:var(--stamp);
+  font-family:"Caveat",cursive;
+  font-size:12px;letter-spacing:1px;
+  padding:6px 10px;
+  border-radius:6px;
+  transform:rotate(8deg);
+  opacity:.7;
+  text-align:center;
+  line-height:1.4;
+  font-weight:700;
+}
+
+/* 标题 */
+.title-main{
+  font-family:"Ma Shan Zheng","Caveat",serif;
+  font-size:48px;line-height:1.1;color:var(--ink);
+  text-align:center;letter-spacing:2px;
+  margin:8px 0 4px;
+  text-shadow:1px 1px 0 #fff9, 2px 2px 6px #0001;
+}
+.title-sub{
+  font-family:"Caveat",cursive;font-size:22px;
+  color:var(--ink-soft);text-align:center;margin-bottom:8px;
+}
+.source-badge{
+  display:block;text-align:center;margin:0 0 18px;
+  font-family:"Patrick Hand";font-size:15px;color:var(--ink-soft);
+}
+.source-badge span{
+  background:#f0e5c8;border:1px dashed #c9b88c;
+  border-radius:20px;padding:3px 14px;
+  font-style:italic;
+}
+
+h2.section{
+  font-family:"ZCOOL KuaiLe","Ma Shan Zheng",serif;
+  font-size:28px;margin:20px 0 12px;
+  display:inline-block;padding:4px 14px;
+  background:linear-gradient(180deg, transparent 60%, #ffe98a 60%);
+  transform:rotate(-1deg);
+}
+
+/* 卡片网格 */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:14px}
+@media(max-width:760px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* 小卡片 */
+.mini-card{
+  background:#fff8e0;border:1px solid #d8c79a;
+  border-radius:10px;padding:14px 16px;
+  position:relative;
+  font-family:"ZCOOL XiaoWei",serif;
+  font-size:15px;line-height:1.7;
+}
+.mini-card h3{
+  margin:0 0 8px;
+  font-family:"Ma Shan Zheng",serif;
+  font-size:19px;letter-spacing:1px;
+  display:flex;align-items:center;gap:6px;
+}
+.mini-card.warn{
+  background:var(--warn-soft);
+  border-color:#e8a0a0;
+}
+.mini-card.tip{
+  background:var(--c3-soft);
+  border-color:#b5c87a;
+}
+.mini-card.blue{
+  background:var(--c2-soft);
+  border-color:#8ab4d0;
+}
+.mini-card.pink{
+  background:var(--c1-soft);
+  border-color:#e8a0bf;
+}
+.mini-card.gold{
+  background:var(--c4-soft);
+  border-color:#d4aa70;
+}
+
+/* 景点列表 */
+.spot-list{list-style:none;margin:0;padding:0}
+.spot-list li{
+  padding:6px 0;
+  border-bottom:1px dotted #c9b88c88;
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:15px;line-height:1.6;
+}
+.spot-list li:last-child{border-bottom:none}
+.spot-tag{
+  display:inline-block;
+  font-size:11px;padding:2px 7px;border-radius:10px;
+  font-family:"Patrick Hand";white-space:nowrap;flex-shrink:0;
+  margin-top:2px;
+}
+.tag-free{background:#d4edda;color:#2d6a4f;border:1px solid #95d5b2}
+.tag-hot{background:#fde2ec;color:#c0392b;border:1px solid #e8a0bf}
+.tag-chill{background:#d7e5f0;color:#1a4971;border:1px solid #8ab4d0}
+.tag-photo{background:#f5e4c0;color:#7a4a00;border:1px solid #d4aa70}
+.tag-hidden{background:#e6ecc8;color:#3d5a0a;border:1px solid #b5c87a}
+
+/* 警告条 */
+.avoid-bar{
+  background:var(--warn-soft);border:1.5px solid #e8a0a0;
+  border-radius:8px;padding:10px 14px;margin:10px 0;
+  font-size:14px;line-height:1.6;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.avoid-bar .icon{font-size:18px;flex-shrink:0;margin-top:1px}
+
+/* 引言块 */
+.quote{
+  background:#fff8e0;border-left:4px solid var(--c2);
+  border-radius:0 8px 8px 0;padding:10px 14px;
+  margin:8px 0;font-style:italic;font-size:14px;
+  color:var(--ink-soft);line-height:1.6;
+}
+.quote::before{content:'" ';font-size:20px;color:var(--c2);opacity:.6;vertical-align:-.1em}
+.quote::after{content:' "';font-size:20px;color:var(--c2);opacity:.6;vertical-align:-.1em}
+
+/* 预算表 */
+.budget-table{width:100%;border-collapse:collapse;font-family:"ZCOOL XiaoWei";font-size:14px;margin-top:10px}
+.budget-table th{
+  background:var(--c2);color:#fff;padding:7px 10px;
+  text-align:left;font-family:"Ma Shan Zheng";font-size:16px;font-weight:normal;
+}
+.budget-table td{padding:7px 10px;border-bottom:1px dotted #c9b88c}
+.budget-table tr:last-child td{border-bottom:none;font-weight:bold;color:var(--c2)}
+.budget-table tr:nth-child(even) td{background:#f5ecd288}
+
+/* 地铁提示 */
+.metro-tip{
+  background:linear-gradient(135deg,#1565c0 0%,#0288d1 100%);
+  color:#fff;border-radius:10px;padding:14px 18px;
+  font-family:"ZCOOL XiaoWei";font-size:15px;line-height:1.7;
+  margin:12px 0;
+}
+.metro-tip strong{font-family:"Ma Shan Zheng";font-size:18px}
+
+/* 周边小地图样式 */
+.around-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:12px;margin-top:12px;
+}
+.around-card{
+  background:#fff8e0;border:1px dashed #c9b88c;
+  border-radius:8px;padding:11px 13px;
+  font-family:"ZCOOL XiaoWei";font-size:14px;line-height:1.6;
+}
+.around-card h4{
+  margin:0 0 5px;font-family:"Ma Shan Zheng";font-size:17px;
+  display:flex;align-items:center;gap:5px;
+}
+.dist-badge{
+  font-size:11px;padding:1px 7px;border-radius:10px;
+  background:#e6ecc8;color:#3d5a0a;border:1px solid #b5c87a;
+  font-family:"Patrick Hand";margin-left:auto;
+}
+
+/* 胶带小条 */
+.tape-inline{
+  display:inline-block;
+  background:var(--tape);padding:1px 14px;
+  transform:rotate(-1deg);border-left:1px dashed #0002;border-right:1px dashed #0002;
+  font-family:"Caveat";font-size:14px;color:var(--ink-soft);
+  margin:0 4px;
+}
+
+/* 复选星标 */
+.star-list{list-style:none;margin:0;padding:0}
+.star-list li{
+  padding:5px 0;border-bottom:1px dotted #c9b88c55;
+  font-size:15px;display:flex;align-items:flex-start;gap:6px;
+}
+.star-list li:last-child{border-bottom:none}
+.star{color:#e8a020;flex-shrink:0}
+
+/* 贡献者条 */
+.contributor{
+  display:inline-block;background:#f0e5c8;border:1px solid #d8c79a;
+  border-radius:20px;padding:2px 10px;font-size:12px;
+  font-family:"Patrick Hand";color:var(--ink-soft);margin:2px 3px;
+}
+</style>
+</head>
+<body>
+
+<!-- 导航条 -->
+<div style="position:sticky;top:0;z-index:9999;background:linear-gradient(135deg,#1a0a00,#3d1800,#1a0a00);border-bottom:3px solid #d4a017;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 3px 16px rgba(0,0,0,.45)">
+  <div style="color:#e8d5a0;font-family:'ZCOOL KuaiLe',serif;font-size:1rem;letter-spacing:.05em">
+    🏮 上海周末两日手账
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <a href="shanghai-trip-0516.html"
+       style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);color:#e8d5a0;text-decoration:none;border-radius:999px;padding:6px 16px;font-family:'ZCOOL KuaiLe',serif;font-size:.9rem;letter-spacing:.05em;border:1px solid rgba(212,160,23,0.5);transition:background .2s"
+       onmouseover="this.style.background='rgba(255,255,255,0.18)'"
+       onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+      📖 两日手账
+    </a>
+    <a href="shanghai-fanhua-guide.html"
+       style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);color:#e8d5a0;text-decoration:none;border-radius:999px;padding:6px 16px;font-family:'ZCOOL KuaiLe',serif;font-size:.9rem;letter-spacing:.05em;border:1px solid rgba(212,160,23,0.5);transition:background .2s"
+       onmouseover="this.style.background='rgba(255,255,255,0.18)'"
+       onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+      🎬 繁花完整攻略
+    </a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- 封面 -->
+<div class="page" id="cover">
+  <div class="tape t1"></div>
+  <div class="tape t2"></div>
+  <div class="stamp">linux.do<br>佬友经验</div>
+
+  <h1 class="title-main">上海 · 佬友经验帖</h1>
+  <div class="title-sub">Real Talk from Real Travelers · Crowd-sourced Tips</div>
+  <div class="source-badge"><span>🖥 来源：linux.do 社区 6 篇真实讨论帖，非AI生成，均为亲历分享</span></div>
+
+  <div class="grid-2" style="margin-top:20px">
+    <div class="mini-card">
+      <h3>💡 这份手账是什么</h3>
+      <p style="margin:0;font-size:14px;line-height:1.8">
+        从 linux.do 「搞七捻三」板块 6 篇上海旅游帖子里提炼的真实经验。有景点推荐、避雷指南、住宿预算、出行技巧，还有周边目的地选择。<br><br>
+        <span class="tape-inline">原汁原味佬友视角</span>，不是旅游攻略号的广告软文。
+      </p>
+    </div>
+    <div class="mini-card blue">
+      <h3>📊 信息来源</h3>
+      <ul class="star-list">
+        <li><span class="star">📌</span>魔都上海怎么玩（45条回复）</li>
+        <li><span class="star">📌</span>上海4天3夜攻略·人均2k（25条回复）</li>
+        <li><span class="star">📌</span>上海一日游，求推荐（10条回复）</li>
+        <li><span class="star">📌</span>51开车带娃去上海（37条回复）</li>
+        <li><span class="star">📌</span>上海出发五一去哪玩（20条回复）</li>
+        <li><span class="star">📌</span>3.14上海扫街胶片日记（41条回复）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tape t3"></div>
+</div>
+
+
+<!-- Part 1：景点推荐 -->
+<div class="page">
+  <div class="tape t1"></div>
+  <div class="tape t2"></div>
+  <h2 class="section">🗺 景点 · 佬友真实推荐</h2>
+
+  <div class="grid-2">
+    <!-- 经典必打卡 -->
+    <div>
+      <div class="mini-card" style="margin-bottom:14px">
+        <h3>🏛 经典不踩雷</h3>
+        <ul class="spot-list">
+          <li>
+            <span class="spot-tag tag-hot">人气</span>
+            <div><strong>外滩 + 南京东路</strong><br><span style="font-size:13px;color:var(--ink-soft)">「带过不少老家的人，时间短就去外滩，时间充足再加豫园」。节假日人很多，建议早去。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-hot">人气</span>
+            <div><strong>人民广场 → 北外滩</strong><br><span style="font-size:13px;color:var(--ink-soft)">适合 citywalk，沿黄浦江走会经过不少电视剧取景地。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-free">免费</span>
+            <div><strong>上海博物馆</strong><br><span style="font-size:13px;color:var(--ink-soft)">「上海博物馆，其他一下子想不起来什么」—— 低调实用。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-free">免费</span>
+            <div><strong>石库门 + 一大旧址</strong><br><span style="font-size:13px;color:var(--ink-soft)">历史感满满，节假日人山人海，早去能避人潮。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-hot">人气</span>
+            <div><strong>新天地</strong><br><span style="font-size:13px;color:var(--ink-soft)">「晚上长乐路酒吧一条街也可以看看，新天地感觉还不错」。</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mini-card tip">
+        <h3>🌿 小众 / 出片佳</h3>
+        <ul class="spot-list">
+          <li>
+            <span class="spot-tag tag-photo">出片</span>
+            <div><strong>武康路 · 安福路 · 永福路</strong><br><span style="font-size:13px;color:var(--ink-soft)">梧桐树荫 + 小店，「有许多小店，街道两侧种有梧桐，很好逛」。拍照人聚集地。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-photo">出片</span>
+            <div><strong>愚园路 → 田子坊 → 思南路</strong><br><span style="font-size:13px;color:var(--ink-soft)">一片相连，文艺气息浓，适合下午慢逛。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-chill">清静</span>
+            <div><strong>静安寺周边</strong><br><span style="font-size:13px;color:var(--ink-soft)">「来上海一年了，比起武康路、外滩啥的，还是比较喜欢静安寺周边」。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-chill">清静</span>
+            <div><strong>滨江大道 · 西岸</strong><br><span style="font-size:13px;color:var(--ink-soft)">沿江步行，「沿着外滩和黄浦江走，会经过很多似曾相识的景点」。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-hidden">冷门</span>
+            <div><strong>横沙岛</strong><br><span style="font-size:13px;color:var(--ink-soft)">「魔都最后的一片净土」，需坐渡船，适合想彻底逃离人群的人。</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 右列 -->
+    <div>
+      <div class="mini-card gold" style="margin-bottom:14px">
+        <h3>🏔 稍微特别的去处</h3>
+        <ul class="spot-list">
+          <li>
+            <span class="spot-tag tag-chill">自然</span>
+            <div><strong>佘山</strong><br><span style="font-size:13px;color:var(--ink-soft)">「去爬上海最高的山——佘山」。上海少见的爬山体验，海拔不高，适合轻量徒步。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-free">免费</span>
+            <div><strong>共青公园</strong><br><span style="font-size:13px;color:var(--ink-soft)">「没门票费，现在里面的花正开，能野营」。带娃遛弯的好去处。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-hidden">冷门</span>
+            <div><strong>人造双子山</strong><br><span style="font-size:13px;color:var(--ink-soft)">上海近年新建的人工山丘，多人提及，适合俯瞰视角拍照。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-photo">出片</span>
+            <div><strong>泰晤士小镇 · 松江影视城</strong><br><span style="font-size:13px;color:var(--ink-soft)">郊区半日游选项，适合喜欢异域建筑拍照的人。</span></div>
+          </li>
+          <li>
+            <span class="spot-tag tag-free">预约</span>
+            <div><strong>交通大学校园</strong><br><span style="font-size:13px;color:var(--ink-soft)">「交大可以预约进的，带娃溜达溜达」。免费校园游，感受百年高校氛围。</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mini-card warn">
+        <h3>⚠️ 避雷 · 节假日慎入</h3>
+        <div class="avoid-bar">
+          <span class="icon">🎢</span>
+          <div><strong>迪士尼 / 欢乐谷</strong><br>「节假日去就是受罪，排队 2 小时游戏 3 分钟」。一位佬友说「超值」，另多位劝退。节假日排队极其严重，请自行权衡。</div>
+        </div>
+        <div class="avoid-bar">
+          <span class="icon">🥢</span>
+          <div><strong>城隍庙 · 里面的餐饮</strong><br>「城隍庙的东西真的难吃且贵，去了几次吃了不同的东西，一个好吃的都没有」。可以逛，但别在里面吃饭。</div>
+        </div>
+        <div class="avoid-bar">
+          <span class="icon">🚗</span>
+          <div><strong>市区开车</strong><br>「停车麻烦的很，光停车费都够你打车了」。强烈建议停酒店后换地铁/打车出行。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tape t3"></div>
+</div>
+
+
+<!-- Part 2：出行技巧 -->
+<div class="page">
+  <div class="tape t1"></div>
+  <h2 class="section">🚇 出行 · 实用贴士</h2>
+
+  <div class="metro-tip">
+    <strong>🚊 地铁可以直达苏州！</strong><br>
+    上海地铁 11 号线延伸到昆山，换乘苏州轨交可进市区。多位佬友确认：「我打算坐地铁去苏州玩了」。节假日买不到火车票时的最优选。
+  </div>
+
+  <div class="grid-3" style="margin-top:14px">
+    <div class="mini-card tip">
+      <h3>✅ 节假日不限行</h3>
+      <p style="margin:0;font-size:14px;line-height:1.8">外地车牌节假日及周末均可进入上海市区，无需担心限行。<br><br>「节假日都可以开，你放心开就好」。但强烈建议车停酒店后换公共交通。</p>
+    </div>
+    <div class="mini-card blue">
+      <h3>📅 热门景点提前预约</h3>
+      <p style="margin:0;font-size:14px;line-height:1.8">「有些热门免费景点可能要提前预约，先在网上查清楚」。<br><br>上海博物馆、部分公园在节假日须提前在公众号预约入场名额。</p>
+    </div>
+    <div class="mini-card gold">
+      <h3>🛏 住宿选址建议</h3>
+      <p style="margin:0;font-size:14px;line-height:1.8">多位佬友推荐 <strong>静安寺附近</strong> 或 <strong>人民广场附近</strong>，地铁换乘便利，周边有吃有逛。<br><br>青旅几十元/晚，全季等快捷酒店 ≈ 300 元/晚。</p>
+    </div>
+  </div>
+
+  <div class="quote" style="margin-top:16px">
+    其实说实话，如果 3 天的旅游，还不如请一天假 + 周末旅游，价格便宜，不会人挤人。之前这样去厦门，五一 1000 多一晚的酒店，平日只要 200 一晚，和汉庭一个价格。
+  </div>
+  <div class="tape t3"></div>
+</div>
+
+
+<!-- Part 3：预算参考 -->
+<div class="page">
+  <div class="tape t2"></div>
+  <h2 class="section">💰 预算参考 · 人均 2k 深度游</h2>
+  <p style="font-size:14px;color:var(--ink-soft);margin:0 0 12px">以下数据来自帖子中佬友的真实分享，仅供参考，随季节和个人选择浮动较大。</p>
+
+  <div class="grid-2">
+    <table class="budget-table">
+      <thead>
+        <tr><th>项目</th><th>佬友报价</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>住宿（快捷酒店）</td><td>~300元/晚</td><td>全季、汉庭等品牌</td></tr>
+        <tr><td>住宿（节假日）</td><td>~400元/晚</td><td>节假日会上涨</td></tr>
+        <tr><td>青旅</td><td>几十元/晚</td><td>多人间，适合预算游</td></tr>
+        <tr><td>餐费</td><td>50–60元/人/餐</td><td>正常餐厅起步价</td></tr>
+        <tr><td>4天餐费合计</td><td>≥600元</td><td>加饮品轻松过千</td></tr>
+        <tr><td>迪士尼门票</td><td>~350元/人</td><td>促销时两人约700</td></tr>
+        <tr><td style="color:var(--c2);font-weight:bold">4天总预算（紧）</td><td style="color:var(--c2);font-weight:bold">~2000元</td><td>含住含吃，景点多免费</td></tr>
+      </tbody>
+    </table>
+
+    <div>
+      <div class="mini-card" style="margin-bottom:12px">
+        <h3>💡 省钱技巧</h3>
+        <ul class="star-list">
+          <li><span class="star">⭐</span>上海核心景点大多数免费，省下门票费可以多吃好的</li>
+          <li><span class="star">⭐</span>「坐绿皮火车」省交通费，体验感也不错</li>
+          <li><span class="star">⭐</span>错峰出行是最有效的省钱方法（平日 vs 节假日价差巨大）</li>
+          <li><span class="star">⭐</span>地铁代替打车，上海地铁覆盖极广</li>
+        </ul>
+      </div>
+      <div class="mini-card warn">
+        <h3>🚨 节假日人潮预警</h3>
+        <p style="margin:0;font-size:14px;line-height:1.8">「五一哪里人都很多，我们已经出逃了」。节假日上海本地人反而纷纷往苏州、杭州跑，市内人流量更大。好吃的排队一小时起步。</p>
+      </div>
+    </div>
+  </div>
+  <div class="tape t3"></div>
+</div>
+
+
+<!-- Part 4：周边目的地 -->
+<div class="page">
+  <div class="tape t1"></div>
+  <div class="tape t2"></div>
+  <h2 class="section">🗾 周边目的地 · 佬友亲历推荐</h2>
+  <p style="font-size:14px;color:var(--ink-soft);margin:0 0 12px">节假日上海市内景点人多，周边半日/一日游是主流选择。</p>
+
+  <div class="around-grid">
+    <div class="around-card">
+      <h4>🚇 苏州 <span class="dist-badge">地铁直达</span></h4>
+      <div style="font-size:13px;line-height:1.7">上海地铁 11 号线可到，免去买票烦恼。园林 / 古镇均可，是节假日抢不到火车票时的首选。</div>
+    </div>
+    <div class="around-card">
+      <h4>🏡 南浔古镇 <span class="dist-badge">高铁约1h</span></h4>
+      <div style="font-size:13px;line-height:1.7">「早上6点多还有去南浔的车票」。水乡古镇，规模适中，人比乌镇少一些。</div>
+    </div>
+    <div class="around-card">
+      <h4>🌊 舟山群岛 <span class="dist-badge">客轮出发</span></h4>
+      <div style="font-size:13px;line-height:1.7">「洋山港出发去舟山，挑朱家尖、东极岛待几天」。喜欢海岛的强烈推荐。</div>
+    </div>
+    <div class="around-card">
+      <h4>🏔 宁波 <span class="dist-badge">高铁约2h</span></h4>
+      <div style="font-size:13px;line-height:1.7">「山和湖游客容量大，人挤人也不太夸张」。比热门目的地稍冷门，更从容。</div>
+    </div>
+    <div class="around-card">
+      <h4>🏘 嘉定 <span class="dist-badge">地铁可达</span></h4>
+      <div style="font-size:13px;line-height:1.7">上海郊区，本地佬友推荐汇龙潭、秋霞圃、孔庙。人不多，适合半日游。</div>
+    </div>
+    <div class="around-card">
+      <h4>🏙 无锡拈花湾 <span class="dist-badge">高铁约1h</span></h4>
+      <div style="font-size:13px;line-height:1.7">禅意小镇，佬友觉得「挺好的」，但五一等节假日人会较多。</div>
+    </div>
+    <div class="around-card">
+      <h4>🌸 婺源 <span class="dist-badge">高铁+租车</span></h4>
+      <div style="font-size:13px;line-height:1.7">「现在景色很看，古建筑也很多，做高铁去然后租车逛」。适合自驾探索。</div>
+    </div>
+    <div class="around-card">
+      <h4>🐟 千岛湖 <span class="dist-badge">高铁约2h</span></h4>
+      <div style="font-size:13px;line-height:1.7">「适合放松，看看风景吃吃鱼头」。比较适合有车或租车自驾。</div>
+    </div>
+    <div class="around-card">
+      <h4>🏕 建德 <span class="dist-badge">高铁约2h</span></h4>
+      <div style="font-size:13px;line-height:1.7">帖子中有佬友四人四天三晚去建德，整体评价不错。相对小众，人流量可控。</div>
+    </div>
+  </div>
+  <div class="tape t3"></div>
+</div>
+
+
+<!-- Part 5：摄影手记（扫街帖） -->
+<div class="page">
+  <div class="tape t2"></div>
+  <h2 class="section">📷 胶片扫街 · 3月上海印象</h2>
+  <p style="font-size:14px;color:var(--ink-soft);margin:0 0 12px">来自一位佬友 3 月 14 日因 F1 周六票未抢到，转而约朋友扫街的真实记录。</p>
+
+  <div class="grid-2">
+    <div class="mini-card gold">
+      <h3>📸 器材配置</h3>
+      <ul class="star-list">
+        <li><span class="star">📷</span>相机：佳能 Kiss 一代（胶片机）</li>
+        <li><span class="star">🎞</span>胶卷：柯达 全能 400（Ultramax 400）</li>
+        <li><span class="star">🔭</span>镜头：适马 24-105mm</li>
+        <li><span class="star">🖨</span>冲扫：翻拍（微单拍胶片后校色）</li>
+      </ul>
+      <div class="quote" style="margin-top:10px">那天的天气好的爆炸！正好拍了一卷，效果特别好，颜色非常喜欢。</div>
+    </div>
+    <div class="mini-card pink">
+      <h3>🗺 扫街氛围感</h3>
+      <p style="margin:0;font-size:14px;line-height:1.8">上海街道尤其是 <strong>武康路、安福路</strong> 一带，有梧桐树荫、法式建筑和精致小店，天气晴朗时光线极好，是胶片爱好者的出片圣地。</p>
+      <br>
+      <p style="margin:0;font-size:13px;color:var(--ink-soft);line-height:1.8">💡 提示：柯达全能 400 在天气好时颜色非常艳丽；冲扫质量会显著影响最终效果，找好冲扫店很关键。</p>
+    </div>
+  </div>
+
+  <div class="mini-card tip" style="margin-top:14px">
+    <h3>📍 适合拍照的路线（综合多帖）</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;font-family:'ZCOOL XiaoWei';font-size:14px;line-height:1.8">
+      <div style="flex:1;min-width:200px">
+        <strong>文艺梧桐路线</strong><br>
+        武康路 → 安福路 → 永福路 → 愚园路 → 思南路
+      </div>
+      <div style="flex:1;min-width:200px">
+        <strong>外滩沿江路线</strong><br>
+        南京东路步行街 → 外滩 → 北外滩 → 滨江大道 → 西岸
+      </div>
+      <div style="flex:1;min-width:200px">
+        <strong>历史街区路线</strong><br>
+        石库门 → 一大旧址 → 新天地 → 田子坊
+      </div>
+    </div>
+  </div>
+  <div class="tape t3"></div>
+</div>
+
+
+<!-- 页脚 -->
+<div style="text-align:center;padding:30px 0 10px;font-family:'Caveat',cursive;font-size:16px;color:var(--ink-soft);opacity:.7">
+  以上内容整理自 linux.do 社区真实讨论帖 · 仅供参考 · 欢迎结合实际情况灵活调整<br>
+  <span style="font-size:13px">内容时效：部分来自 2024 年，请留意价格、政策等信息的时效性</span>
+</div>
+
+</div><!-- /wrap -->
+</body>
+</html>
